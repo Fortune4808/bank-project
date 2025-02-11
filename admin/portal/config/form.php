@@ -15,17 +15,17 @@
                 <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> FIRST NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="firstname" placeholder="ENTER FIRSTNAME"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> MIDDLE NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="middlename" placeholder="ENTER MIDDLE"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LAST NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="lastname" placeholder="ENTER LASTNAME"/>
                     </div>
             
                     <div class="w-[100%]">
@@ -40,7 +40,7 @@
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> DATE OF BIRTH:</label><br/>
-                        <input class="formInput" type="date" id="email" placeholder="ENTER EMAIL ADDRESS"/>
+                        <input class="formInput" type="date" id="dob" placeholder="ENTER DATE OF BIRHT"/>
                     </div>
 
                     <div class="w-[100%]">
@@ -60,7 +60,7 @@
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> QUALIFICATION:</label><br/>
                         <select class="formInput" id="qualification_id">
-                        <script>_get_qualification()</script>
+                            <script>_get_qualification()</script>
                         </select>
                     </div>
 
@@ -73,12 +73,12 @@
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> ID NUMBER:</label><br/>
-                        <input class="formInput" type="tel" id="" placeholder="ENTER ID NUMBER"/>
+                        <input class="formInput" type="text" id="id_number" placeholder="ENTER ID NUMBER"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> COUNTRY:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="country_id">
                             <option>== SELECT COUNTRY ==</option>
                             <script>
                                
@@ -88,16 +88,21 @@
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATE:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="state_id">
                             <option>== SELECT STATE ==</option>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LOCAL GOVERNMENT:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="lga_id">
                             <option>== SELECT LOCAL GOVERNMENT ==</option>
                         </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> ADDRESS:</label><br/>
+                        <textarea class="formInput" id="address"></textarea>
                     </div>
 
                     <div class="w-[100%]">
@@ -166,22 +171,22 @@
                 <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> BVN:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER BVN"/>
+                        <input class="formInput" type="text" id="bvn" placeholder="ENTER BVN"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> FIRST NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="firstname" placeholder="ENTER FIRTNAME"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> MIDDLE NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="middlename" placeholder="ENTER MIDDLENAME"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LAST NAME:</label><br/>
-                        <input class="formInput" type="text" id="" placeholder="ENTER FULLNAME"/>
+                        <input class="formInput" type="text" id="lastname" placeholder="ENTER LASTNAME"/>
                     </div>
             
                     <div class="w-[100%]">
@@ -196,38 +201,38 @@
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> DATE OF BIRTH:</label><br/>
-                        <input class="formInput" type="date" id="email" placeholder="ENTER EMAIL ADDRESS"/>
+                        <input class="formInput" type="date" id="dob" placeholder="ENTER DATE OF BIRTH"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> GENDER:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT GENDER ==</option>
+                        <select class="formInput" id="gender_id">
+                            <script>_get_gender();</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> MARITAL STATUS:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT MARITAL STATUS ==</option>
+                        <select class="formInput" id="marital_status_id">
+                            <script>_get_marital_status()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> MEANS OF IDENTIFICATION:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT MEANS OF IDENTIFICATION ==</option>
+                        <select class="formInput" id="identification_id">
+                            <script>_get_means_of_id()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> ID NUMBER:</label><br/>
-                        <input class="formInput" type="tel" id="" placeholder="ENTER ID NUMBER"/>
+                        <input class="formInput" type="tel" id="id_number" placeholder="ENTER ID NUMBER"/>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> COUNTRY:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="country_id">
                             <option>== SELECT COUNTRY ==</option>
                             <script>
                                
@@ -237,48 +242,52 @@
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATE:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="state_id">
                             <option>== SELECT STATE ==</option>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LOCAL GOVERNMENT:</label><br/>
-                        <select class="formInput" id="">
+                        <select class="formInput" id="lga_id">
                             <option>== SELECT LOCAL GOVERNMENT ==</option>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> BRANCH:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT BRANCH ==</option>
+                        <select class="formInput" id="branch_id">
+                            <script>_get_branch()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> CUSTOMER TYPE:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT CUSTOMER TYPE ==</option>
+                        <select class="formInput" id="customer_type_id">
+                            <script>_get_customer_type()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> ACCOUNT TYPE:</label><br/>
-                        <select class="formInput" id="">
-                            <option>== SELECT ACCOUNT TYPE ==</option>
+                        <select class="formInput" id="account_type_id">
+                            <script>_get_account_type()</script>
                         </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> ADDRESS:</label><br/>
+                        <textarea class="formInput" id="address"></textarea>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATUS:</label><br/>
                         <select class="formInput" id="status_id">
-                            <option>== SELECT STATUS ==</option>
                             <script>_get_status();</script>
                         </select>
                     </div>
 
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick=""><i class="bi-check2"></i> SUBMIT</button>
+                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_add_new_customer()"><i class="bi-check2"></i> SUBMIT</button>
                 </div>
             </div>
         </div>
@@ -706,47 +715,10 @@
     </div>
 <?php }?>
 
-<?php if ($page=='new-expenses'){?>
+<?php if ($page=='update-branch'){?>
     <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
         <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> New Expenses Form </p>
-            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
-        </div>
-
-        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
-
-            <div class="w-[90%] m-auto">
-                <div class="mt-[15px] p-[10px] bg-[#FAF3F0] border border-solid border-[#F2BDA2] font-title">
-                    <p class="text-[#424141]">Kindly fill the form below to <span class="text-[#83C2E7] font-bold">Add New Expenses</span></p>
-                </div>
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES DESCRIPTION:</label><br/>
-                        <input class="formInput" type="text" id="expenses_desc" placeholder="ENTER EXPENSES DESCRIPTION"/>
-                    </div>
-            
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES ITEM:</label><br/>
-                        <input class="formInput" type="tel" id="expenses_item" placeholder="ENTER EXPENSES ITEM"/>
-                    </div>
-
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES AMOUNT:</label><br/>
-                        <input class="formInput" type="email" id="expenses_amount" placeholder="ENTER EXPENSES AMOUNT"/>
-                    </div>
-
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_add_new_expenses();"><i class="bi-check2"></i> SUBMIT</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php }?>
-
-<?php if ($page=='update-expenses'){?>
-    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
-        <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Update Expenses Form </p>
+            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Update Branch Form </p>
             <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
         </div>
 
@@ -756,25 +728,159 @@
 
                 <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES DESCRIPTION:</label><br/>
-                        <input class="formInput" type="text" id="expenses_description" placeholder="ENTER EXPENSES DESCRIPTION"/>
+                        <label class="px-[10px] text-primary-color"> BRANCH NAME:</label><br/>
+                        <input class="formInput" type="text" id="branch_name" placeholder="ENTER BRANCH NAME"/>
                     </div>
             
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES ITEM:</label><br/>
-                        <input class="formInput" type="tel" id="expenses_item" placeholder="ENTER EXPENSES ITEM"/>
+                        <label class="px-[10px] text-primary-color"> BRANCH EMAIL ADDRESS:</label><br/>
+                        <input class="formInput" type="email" id="branch_email" placeholder="ENTER BRANCH EMAIL ADDRESS"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> EXPENSES AMOUNT:</label><br/>
-                        <input class="formInput" type="email" id="expenses_amount" placeholder="ENTER EXPENSES AMOUNT"/>
+                        <label class="px-[10px] text-primary-color"> BRANCH MOBILE NUMBER:</label><br/>
+                        <input class="formInput" type="tel" id="branch_mobile_number" placeholder="ENTER BRANCH MOBILE NUMBER"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> ADDRESS:</label><br/>
+                        <textarea class="formInput" id="address"></textarea>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH ZIPCODE:</label><br/>
+                        <input class="formInput" type="tel" id="branch_zipcode" placeholder="ENTER BRANCH ZIPCODE"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH SORT CODE:</label><br/>
+                        <input class="formInput" type="tel" id="branch_sortcode" placeholder="ENTER BRANCH SORT CODE"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH COUNTRY:</label><br/>
+                        <select class="formInput" id="country_id">
+                            <script></script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH STATE:</label><br/>
+                        <select class="formInput" id="state_id">
+                            <script></script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH LOCAL GOVERNMENT:</label><br/>
+                        <select class="formInput" id="lga_id">
+                            <script></script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> STATUS:</label><br/>
+                        <select class="formInput" id="status_id">
+                            <script></script>
+                        </select>
                     </div>
 
                     <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateExpenses('<?php echo $ids?>');"><i class="bi-check2"></i> UPDATE</button>
                 </div>
             </div>
         </div>
-        <script>fetchEachExpenses('<?php echo $ids; ?>')</script>
+        <script>_get_each_branch('<?php echo $ids; ?>')</script>
+    </div>
+<?php }?>
+
+<?php if ($page=='add-branch'){?>
+    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
+        <div class="formHeader">
+            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-bank2"></i> Add New Branch Form </p>
+            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
+        </div>
+
+        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
+
+            <div class="w-[90%] m-auto">
+
+                <div class="mt-[15px] p-[10px] bg-[#FAF3F0] border border-solid border-[#F2BDA2] font-title">
+                    <p class="text-[#424141]">Kindly fill the form below to <span class="text-[#83C2E7] font-bold">Add New Branch</span></p>
+                </div>
+
+                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH NAME:</label><br/>
+                        <input class="formInput" type="text" id="branch_name" placeholder="ENTER BRANCH NAME"/>
+                    </div>
+            
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH EMAIL ADDRESS:</label><br/>
+                        <input class="formInput" type="email" id="branch_email" placeholder="ENTER BRANCH EMAIL ADDRESS"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH MOBILE NUMBER:</label><br/>
+                        <input class="formInput" type="tel" id="branch_mobile_number" placeholder="ENTER BRANCH MOBILE NUMBER"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> ADDRESS:</label><br/>
+                        <textarea class="formInput" id="address"></textarea>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH ZIPCODE:</label><br/>
+                        <input class="formInput" type="tel" id="branch_zipcode" placeholder="ENTER BRANCH ZIPCODE"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH SORT CODE:</label><br/>
+                        <input class="formInput" type="tel" id="branch_sortcode" placeholder="ENTER BRANCH SORT CODE"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH COUNTRY:</label><br/>
+                        <select class="formInput" id="country_id">
+                            <script>_get_country()</script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH STATE:</label><br/>
+                        <select class="formInput" id="state_id">
+                            <script>
+                                $('#country_id').on('change', function() {
+                                var country_id = $(this).val();
+                                _get_state(country_id);
+                                });
+                            </script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> BRANCH LOCAL GOVERNMENT:</label><br/>
+                        <select class="formInput" id="lga_id">
+                            <script>
+                                 $('#state_id').on('change', function() {
+                                var state_id = $(this).val();
+                                _get_lga(state_id);
+                                });
+                            </script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> STATUS:</label><br/>
+                        <select class="formInput" id="status_id">
+                            <script>_get_status()</script>
+                        </select>
+                    </div>
+
+                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_add_new_branch()"><i class="bi-check2"></i> SUBMIT</button>
+                </div>
+            </div>
+        </div>
     </div>
 <?php }?>
 
@@ -836,140 +942,6 @@
     </div>
 <?php }?>
 
-<?php if ($page=='add-faculty'){?>
-    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
-        <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Add New Faculty Form </p>
-            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
-        </div>
-
-        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
-
-            <div class="w-[90%] m-auto">
-                 <div class="mt-[15px] p-[10px] bg-[#FAF3F0] border border-solid border-[#F2BDA2] font-title">
-                    <p class="text-[#424141]">Kindly fill the form below to <span class="text-[#83C2E7] font-bold">Add New Faculty</span></p>
-                </div>
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> FACULTY NAME:</label><br/>
-                        <input class="formInput" type="text" id="faculty_name" placeholder="FACULTY NAME"/>
-                    </div>
-
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_add_new_faculty();"><i class="bi-check2"></i> SUBMIT</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php }?>
-
-<?php if ($page=='update-faculty'){?>
-    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
-        <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Update Faculty Form </p>
-            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
-        </div>
-
-        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
-
-            <div class="w-[90%] m-auto">
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> FACULTY NAME:</label><br/>
-                        <input class="formInput" type="text" id="faculty_name" placeholder="FACULTY NAME"/>
-                    </div>
-
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateFaculty('<?php echo $ids; ?>')"><i class="bi-check2"></i> UPDATE</button>
-                </div>
-            </div>
-        </div>
-        <script>fetchEachFaculty('<?php echo $ids; ?>')</script>
-    </div>
-<?php }?>
-
-<?php if ($page=='add-department'){?>
-    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
-        <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Add New Department Form </p>
-            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
-        </div>
-
-        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
-
-            <div class="w-[90%] m-auto">
-                 <div class="mt-[15px] p-[10px] bg-[#FAF3F0] border border-solid border-[#F2BDA2] font-title">
-                    <p class="text-[#424141]">Kindly fill the form below to <span class="text-[#83C2E7] font-bold">Add New Department</span></p>
-                </div>
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> FACULTY:</label><br/>
-                        <select class="formInput" id="faculty_id">
-                            <option>Select Faculty</option>
-                            <script>_get_faculty();</script>
-                        </select>
-                    </div>
-
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> DEPARTMENT NAME:</label><br/>
-                        <input class="formInput" type="text" id="department_name" placeholder="DEPARTMENT NAME"/>
-                    </div>
-
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_add_new_department()"><i class="bi-check2"></i> SUBMIT</button>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php }?>
-
-<?php if ($page=='update-department'){?>
-    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
-        <div class="formHeader">
-            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Update Department Form </p>
-            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
-        </div>
-
-        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
-
-            <div class="w-[90%] m-auto">
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> FACULTY:</label><br/>
-                        <select class="formInput" id="faculty_id">
-                            <option>Select Faculty</option>
-                            <script>_get_faculty();</script>
-                        </select>
-                    </div>
-
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> DEPARTMENT NAME:</label><br/>
-                        <select class="formInput" id="department_id">
-                            <script>
-                                 $('#faculty_id').on('change', function() {
-                                var faculty_id = $(this).val(); 
-                                 _get_department(faculty_id); 
-                                });
-                            </script>
-                        </select>
-                    </div>
-
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> STATUS:</label><br/>
-                        <select class="formInput" id="status_id">
-                            <script>_get_status();</script>
-                        </select>
-                    </div>
-
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateDepartment('<?php echo $ids; ?>')"><i class="bi-check2"></i> UPDATE</button>
-                </div>
-            </div>
-        </div>
-        <script>fetchEachDepartment('<?php echo $ids; ?>')</script>
-    </div>
-<?php }?>
-
 <?php if ($page=='notification-module'){?>
     <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
         <div class="formHeader">
@@ -998,6 +970,31 @@
             </div>
         </div>
         <script>_get_each_notification('<?php echo $ids; ?>')</script>
+    </div>
+<?php }?>
+
+<?php if ($page=='update-department'){?>
+    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
+        <div class="formHeader">
+            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Update Branch Form </p>
+            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
+        </div>
+
+        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
+
+            <div class="w-[90%] m-auto">
+
+                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> DEPARTMENT NAME:</label><br/>
+                        <input class="formInput" type="text" id="department_name" placeholder="ENTER DEPARTMENT NAME"/>
+                    </div>
+
+                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateExpenses('<?php echo $ids?>');"><i class="bi-check2"></i> UPDATE</button>
+                </div>
+            </div>
+        </div>
+        <script>_get_each_department('<?php echo $ids; ?>')</script>
     </div>
 <?php }?>
 

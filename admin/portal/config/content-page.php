@@ -99,7 +99,7 @@
 
             <select class="w-[20%] h-[45px] bg-white pl-[20px] rounded-[5px] focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" id="department_id" onchange="_all_staff(status_id, branch_id, this.value);">
                 <option value="">All Department</option>
-                 <script></script>
+                 <script>_get_department()</script>
             </select>
             <input class="w-[30%] h-[45px] bg-white pl-[20px] rounded-[5px] outline-none focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" type="text" id="search" onkeyup="_all_staff('');" placeholder="Type here to search..." title="Type here to search"/>
         </div>
@@ -126,18 +126,17 @@
                 <script>_get_status();</script>
             </select>
 
-            <select class="w-[20%] h-[45px] bg-white pl-[20px] rounded-[5px] focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" id="branch_id" onchange="_all_customer(1, status_id this.value)">
-                <option value="">All Branches</option>
-                <script>_get_level();</script>
+            <select class="w-[20%] h-[45px] bg-white pl-[20px] rounded-[5px] focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" id="branch_id" onchange="_all_customer(1, status_id, this.value)">
+            <option value="">All Branch</option>
+                <script>_get_branch();</script>
             </select>
-            <input class="w-[30%] h-[45px] bg-white pl-[20px] rounded-[5px] outline-none focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" type="text" id="search" onkeyup="_all_customer(1, '');" placeholder="Type here to search..." title="Type here to search"/>
+            <input class="w-[30%] h-[45px] bg-white pl-[20px] rounded-[5px] outline-none focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" type="text" id="search" onkeyup="_all_customer(1, '', '');" placeholder="Type here to search..." title="Type here to search"/>
         </div>
-
 
         <div class="w-[100%] h-[40px] bg-[#ECF5F0] border-solid border border-[#A0E5BD] flex justify-center">
             <div class="w-[98%] flex items-center justify-between text-[#424141]">
                 <div><i class="bi-people-fill"></i>  ALL CUSTOMER'S LIST</div>
-                <button class="text-sm py-[5px] px-[10px] bg-[#0E4000]" title="Add New Customer"  onClick="_get_form('customer_reg');">ADD NEW CUSTOMER <i class="bi-person-plus"></i></button>
+                <button class="text-sm py-[5px] px-[10px] bg-[#0E4000]" title="Add New Customer" onClick="_get_form('customer_reg');">ADD NEW CUSTOMER <i class="bi-person-plus"></i></button>
             </div>
         </div>
 
@@ -302,44 +301,6 @@
     </div>
 <?php }?>
 
-<?php if($page=='expenses-module'){?>
-   <div class="w-[100%] h-[55px] text-white bg-[#EBEBEB] rounded-md font-body">
-        <div class="w-[95%] mx-[auto]">
-            <input class="w-[100%] h-[40px] mt-[7.5px] outline-none px-[10px] text-black/50 rounded-md focus:border border-black/30" type="text" id="search" onkeyup="fetchExpenses(1, '')"/>
-        </div>
-
-        <div class="w-[100%] h-[40px] bg-[#ECF5F0] mt-[7px] border-solid border border-[#A0E5BD] flex justify-center">
-            <div class="w-[98%] flex items-center justify-between text-[#424141]">
-                <div><i class="bi-cash-coin"></i>  ALL EXPENSES LIST</div>
-                <button class="text-sm py-[5px] px-[10px] bg-[#0E4000]" title="Add new expenses"  onClick="_get_form('new-expenses');">ADD NEW EXPENSES <i class="bi-cash-coin"></i></button>
-            </div>
-        </div>
-
-        <div class="w-[98%] m-auto mt-[10px]" id="fetch_all_expenses">
-            <script>fetchExpenses(1);</script>
-        </div>
-   </div>  
-<?php }?>
-
-<?php if($page=='faculty-module'){?>
-   <div class="w-[100%] h-[55px] text-white bg-[#EBEBEB] rounded-md font-body">
-        <div class="w-[95%] mx-[auto]">
-            <input class="w-[100%] h-[40px] mt-[7.5px] outline-none px-[10px] text-black/50 rounded-md focus:border border-black/30" type="text" id="search" onkeyup="fetchFaculties(1, '')"/>
-        </div>
-
-        <div class="w-[100%] h-[40px] bg-[#ECF5F0] mt-[7px] border-solid border border-[#A0E5BD] flex justify-center">
-            <div class="w-[98%] flex items-center justify-between text-[#424141]">
-                <div><i class="bi-cash-coin"></i>  ALL FACULTY LIST</div>
-                <button class="text-sm py-[5px] px-[10px] bg-[#0E4000]" title="Add new faculty"  onClick="_get_form('add-faculty');">ADD NEW FACULTY <i class="bi-cash-coin"></i></button>
-            </div>
-        </div>
-
-        <div class="w-[98%] m-auto mt-[10px]" id="fetch_all_faculty">
-            <script>fetchFaculties(1, '');</script>
-        </div>
-   </div>  
-<?php }?>
-
 <?php if($page=='department-module'){?>
    <div class="w-[100%] h-[55px] text-white bg-[#EBEBEB] rounded-md font-body">
         <div class="w-[95%] mx-[auto]">
@@ -355,6 +316,30 @@
 
         <div class="w-[98%] m-auto mt-[10px]" id="fetch_all_department">
             <script>fetchDepartment(1, '');</script>
+        </div>
+   </div>  
+<?php }?>
+
+<?php if($page=='all-branch'){?>
+   <div class="w-[100%] h-[55px] rounded-md font-body">
+        <div class="w-[95%] h-[55px] m-auto flex justify-between items-center content-center gap-[5px] text-[10px] text-[#ABABAB]">
+            <select class="w-[20%] h-[45px] bg-white pl-[20px] rounded-[5px] focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" id="status_id" onchange="_all_branch(1, this.value);">
+                <option value="">All Status</option>
+                <script>_get_status();</script>
+            </select>
+
+            <input class="w-[30%] h-[45px] bg-white pl-[20px] rounded-[5px] outline-none focus:border-black border-solid border focus:border-opacity-30 flex flex-grow" type="text" id="search" onkeyup="_all_branch(1, '');" placeholder="Type here to search..." title="Type here to search"/>
+        </div>
+
+        <div class="w-[100%] h-[40px] bg-[#ECF5F0] border-solid border border-[#A0E5BD] flex justify-center">
+            <div class="w-[98%] flex items-center justify-between text-[#424141]">
+                <div><i class="bi-bank2"></i>  ALL BRANCH'S LIST</div>
+                <button class="text-sm py-[5px] px-[10px] bg-[#0E4000]" title="Add New Branch"  onClick="_get_form('add-branch');">ADD NEW BRANCH <i class="bi-person-plus"></i></button>
+            </div>
+        </div>
+
+        <div class="w-[98%] m-auto mt-[10px]" id="fetch_all_branch">
+            <script>_all_branch(1, '')</script>
         </div>
    </div>  
 <?php }?>

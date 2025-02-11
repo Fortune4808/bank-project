@@ -376,8 +376,8 @@ function _all_customer(page, status_id, branch_id) {
                       '<div class="my-[10px] flex justify-between">'+
                           '<div class="text-[#3a4669]">Showing ' + pagination.current_page + ' to ' + pagination.total_pages + ' of ' + pagination.total_customer + ' entries</div>'+
                           '<div class="flex gap-1">'+
-                              '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.prev_page ? 'onclick="_all_student(' + pagination.prev_page + ', \'' + status_id + '\')"' : 'disabled') + '>PREVIOUS</button>' +
-                              '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.next_page ? 'onclick="_all_student(' + pagination.next_page + ', \'' + status_id + '\')"' : 'disabled') + '>NEXT</button>'+
+                              '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.prev_page ? 'onclick="_all_customer(' + pagination.prev_page + ', \'' + status_id + '\')"' : 'disabled') + '>PREVIOUS</button>' +
+                              '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.next_page ? 'onclick="_all_customer(' + pagination.next_page + ', \'' + status_id + '\')"' : 'disabled') + '>NEXT</button>'+
                           '</div>'+
                       '</div>';
 
@@ -568,7 +568,7 @@ function _get_means_of_id() {
 }
 
 function _get_branch() {
-  axios.post(endpoint + '/admin/fetch-branch-api?access_key=' + access_key, null, { headers: apikey })
+  axios.post(endpoint + '/admin/fetch-all-branch-api?access_key=' + access_key, null, { headers: apikey })
   .then(response => {
       var access_check = response.data.check;
       var success = response.data.success;
@@ -686,6 +686,696 @@ function _get_status() {
       }
   });
 }
+
+function showError(errorType, message) {
+  $('#warning-div').html('<div><i class="bi-exclamation-circle"></i></div>' + errorType + '<br /><span>' + message + '</span>').fadeIn(500).delay(3000).fadeOut(100);
+}
+
+function _add_new_staff(){
+	var firstname = $('#firstname').val();
+	var middlename = $('#middlename').val();
+	var lastname = $('#lastname').val();
+	var phoneno = $('#phoneno').val();
+	var email = $('#email').val();
+	var dob = $('#dob').val();
+	var gender_id = $('#gender_id').val();
+	var marital_status_id = $('#marital_status_id').val();
+  var qualification_id = $('#qualification_id').val();	
+  var identification_id = $('#identification_id').val();	
+  var id_number = $('#id_number').val();	
+  var country_id = $('#country_id').val();
+  var state_id = $('#state_id').val();
+  var lga_id = $('#lga_id').val();
+  var address = $('#address').val();
+  var branch_id = $('#branch_id').val();
+  var department_id = $('#department_id').val();
+  var role_id = $('#role_id').val();
+  var post_id = $('#post_id').val();
+  var status_id = $('#status_id').val();
+
+	  if (firstname == '') {
+		showError('FIRSTNAME ERROR!', 'Fill all Fields To Continue');
+	  } else if (middlename == '') {
+		showError('MIDDLENAME!', 'Fill all Fields To Continue');
+	  } else if (lastname == '') {
+		showError('LASTNAME ERROR!', 'Fill all Fields To Continue');
+	  } else if (email == '') {
+		showError('EMAIL ERROR!', 'Fill all Fields To Continue');
+	  } else if (dob == '') {
+		showError('DATE OF BIRTH ERROR!', 'Fill all Fields To Continue');
+	  } else if (gender_id == '') {
+		showError('GENDER ERROR!', 'Please select a gender');
+	  } else if (marital_status_id === '') {
+		showError('MARITAL STATUS ERROR!', 'Please select a marital status');
+	  } else if (qualification_id === '') {
+		showError('QUALIFICATION ERROR!', 'Please select a qualification');
+    }else if(identification_id==''){
+      showError('IDENTIFICATION ERROR!', 'Please select an identification');
+    }else if (id_number==''){
+      showError('ID NUMBER ERROR!', 'Fill all Fields To Continue');
+    }else if (country_id==''){
+      showError('COUNTRY ERROR!', 'Please select a country');
+    }else if (state_id==''){
+      showError('STATE ERROR!', 'Please select a state');
+    }else if (lga_id==''){
+      showError('LOCAL GOVERNMENT ERROR!', 'Please select a local government');
+    }else if (address==''){
+      showError('ADDRESS ERROR!', 'Fill all Fields To Continue');
+    }else if (branch_id==''){
+      showError('BRANCH ERROR!', 'Please select a branch');
+    }else if (department_id==''){
+      showError('DEPARTMENT ERROR!', 'Please select a department');
+    }else if (role_id==''){
+      showError('ROLE ERROR!', 'Please select a role');
+    }else if (post_id==''){
+      showError('POST ERROR!', 'Please select a post');
+    }else if (status_id==''){
+      showError('STATUS ERROR!', 'Please select a status');
+    }else if (!validateTextInput(firstname)) {
+		  showError('FIRSTNAME ERROR!', 'Digit is not allowed in firstname input');
+    }else if (!validateTextInput(lastname)){
+      showError('LASTNAME ERROR!', 'Digit is not allowed in lastname input');
+    }else if (!validateTextInput(middlename)){
+      showError('MIDDLENAME ERROR!', 'Digit is not allowed in middlename input');
+    }else if (!validatePhoneNumber(phoneno)) {
+		showError('PHONE ERROR!', 'Please ensure you enter a valid phone number');
+  
+	}else{
+  
+	  var btn_text  = $('#submit_btn').html();
+	  $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> PROCESSING...');
+	  document.getElementById('submit_btn').disabled = true;
+  
+	  var formData ='firstname=' + firstname + '&middlename=' + middlename + '&lastname=' + lastname + '&mobile_no=' + phoneno + '&email_address=' + email + '&dob=' + dob + '&gender_id=' + gender_id + '&marital_status_id=' + marital_status_id + '&qualification_id=' + qualification_id + '&identification_id=' + identification_id + '&id_number=' + id_number + '&branch_id=' + branch_id + '&lga_id=' + lga_id + '&address=' + address + '&department_id=' + department_id + '&role_id=' + role_id + '&post_id=' + post_id + '&status_id=' + status_id;
+
+	  axios.post(endpoint + '/admin/add-new-staff-api?access_key=' + access_key, formData, { headers: apikey })
+	  .then(response => {
+		  var access_check = response.data.check;
+		  var success = response.data.success;
+		  var message = response.data.message;
+
+		  if (access_check == 0) {
+			  _logout_(); 
+		  } else {
+			if (success == true) {
+				$('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+				$('#submit_btn').html(btn_text);
+				document.getElementById('submit_btn').disabled=false;
+				alert_close();
+				_all_staff(1, 2, '', '');
+			}else{
+				$('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+          		$('#submit_btn').html(btn_text);
+          		document.getElementById('submit_btn').disabled=false;
+			}
+		  }
+	  })
+	  .catch(error => {
+		$('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+		$('#submit_btn').html(btn_text);
+		document.getElementById('submit_btn').disabled = false;
+	  });
+	  
+	}
+  }
+
+  function _get_customer_type() {
+    axios.post(endpoint + '/admin/fetch-customer-type-api?access_key=' + access_key, null, { headers: apikey })
+    .then(response => {
+        var access_check = response.data.check;
+        var success = response.data.success;
+        var fetch = response.data.data;
+  
+        var text = '';
+        if (access_check == 0) {
+            _logout_(); 
+        } else {
+            if (success == true) {
+                for (var i = 0; i < fetch.length; i++) {
+                    var customer_type_id = fetch[i].customer_type_id;
+                    var customer_type_name = fetch[i].customer_type_name;
+                    text += '<option value="' + customer_type_id + '">' + customer_type_name + '</option>';
+                }
+                $('#customer_type_id').html('<option value="">== SELECT CUSTOMER TYPE ==</option>' + text);
+            }
+        }
+    });
+  }
+
+  function _get_account_type() {
+    axios.post(endpoint + '/admin/fetch-account-type-api?access_key=' + access_key, null, { headers: apikey })
+    .then(response => {
+        var access_check = response.data.check;
+        var success = response.data.success;
+        var fetch = response.data.data;
+  
+        var text = '';
+        if (access_check == 0) {
+            _logout_(); 
+        } else {
+            if (success == true) {
+                for (var i = 0; i < fetch.length; i++) {
+                    var account_type_id = fetch[i].account_type_id;
+                    var account_type_name = fetch[i].account_type_name;
+                    text += '<option value="' + account_type_id + '">' + account_type_name + '</option>';
+                }
+                $('#account_type_id').html('<option value="">== SELECT ACCOUNT TYPE ==</option>' + text);
+            }
+        }
+    });
+  }
+
+  function _add_new_customer(){
+    var bvn = $('#bvn').val();
+    var firstname = $('#firstname').val();
+    var middlename = $('#middlename').val();
+    var lastname = $('#lastname').val();
+    var phoneno = $('#phoneno').val();
+    var email = $('#email').val();
+    var dob = $('#dob').val();
+    var gender_id = $('#gender_id').val();
+    var marital_status_id = $('#marital_status_id').val();
+    var qualification_id = $('#qualification_id').val();	
+    var identification_id = $('#identification_id').val();	
+    var id_number = $('#id_number').val();	
+    var country_id = $('#country_id').val();
+    var state_id = $('#state_id').val();
+    var lga_id = $('#lga_id').val();
+    var address = $('#address').val();
+    var branch_id = $('#branch_id').val();
+    var customer_type_id = $('#customer_type_id').val();
+    var account_type_id = $('#account_type_id').val();
+    var status_id = $('#status_id').val();
+    
+    if (bvn==''){
+      showError('BVN ERROR!', 'Fill all Fields To Continue');
+    }else if (firstname == '') {
+      showError('FIRSTNAME ERROR!', 'Fill all Fields To Continue');
+      } else if (middlename == '') {
+      showError('MIDDLENAME!', 'Fill all Fields To Continue');
+      } else if (lastname == '') {
+      showError('LASTNAME ERROR!', 'Fill all Fields To Continue');
+      } else if (email == '') {
+      showError('EMAIL ERROR!', 'Fill all Fields To Continue');
+      } else if (dob == '') {
+      showError('DATE OF BIRTH ERROR!', 'Fill all Fields To Continue');
+      } else if (gender_id == '') {
+      showError('GENDER ERROR!', 'Please select a gender');
+      } else if (marital_status_id === '') {
+      showError('MARITAL STATUS ERROR!', 'Please select a marital status');
+      } else if (qualification_id === '') {
+      showError('QUALIFICATION ERROR!', 'Please select a qualification');
+      }else if(identification_id==''){
+        showError('IDENTIFICATION ERROR!', 'Please select an identification');
+      }else if (id_number==''){
+        showError('ID NUMBER ERROR!', 'Fill all Fields To Continue');
+      }else if (country_id==''){
+        showError('COUNTRY ERROR!', 'Please select a country');
+      }else if (state_id==''){
+        showError('STATE ERROR!', 'Please select a state');
+      }else if (lga_id==''){
+        showError('LOCAL GOVERNMENT ERROR!', 'Please select a local government');
+      }else if (address==''){
+        showError('ADDRESS ERROR!', 'Fill all Fields To Continue');
+      }else if (branch_id==''){
+        showError('BRANCH ERROR!', 'Please select a branch');
+      }else if (customer_type_id==''){
+        showError('CUSTOMER TYPE ERROR!', 'Please select a customer type');
+      }else if (account_type_id==''){
+        showError('ACCOUNT TYPE ERROR!', 'Please select a account type');
+      }else if (status_id==''){
+        showError('STATUS ERROR!', 'Please select a status');
+      }else if (!validateTextInput(firstname)) {
+        showError('FIRSTNAME ERROR!', 'Digit is not allowed in firstname input');
+      }else if (!validateTextInput(lastname)){
+        showError('LASTNAME ERROR!', 'Digit is not allowed in lastname input');
+      }else if (!validateTextInput(middlename)){
+        showError('MIDDLENAME ERROR!', 'Digit is not allowed in middlename input');
+      }else if (!validatePhoneNumber(phoneno)) {
+      showError('PHONE ERROR!', 'Please ensure you enter a valid phone number');
+    
+    }else{
+    
+      var btn_text  = $('#submit_btn').html();
+      $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> PROCESSING...');
+      document.getElementById('submit_btn').disabled = true;
+    
+      var formData ='firstname=' + firstname + '&middlename=' + middlename + '&lastname=' + lastname + '&mobile_no=' + phoneno + '&email_address=' + email + '&dob=' + dob + '&gender_id=' + gender_id + '&marital_status_id=' + marital_status_id + '&identification_id=' + identification_id + '&id_number=' + id_number + '&branch_id=' + branch_id + '&lga_id=' + lga_id + '&address=' + address + '&status_id=' + status_id + '&bvn=' + bvn + '&customer_type_id=' + customer_type_id + '&account_type_id=' + account_type_id;
+  
+      axios.post(endpoint + '/admin/add-new-customer-api?access_key=' + access_key, formData, { headers: apikey })
+      .then(response => {
+        var access_check = response.data.check;
+        var success = response.data.success;
+        var message = response.data.message;
+  
+        if (access_check == 0) {
+          _logout_(); 
+        } else {
+        if (success == true) {
+          $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+          $('#submit_btn').html(btn_text);
+          document.getElementById('submit_btn').disabled=false;
+          alert_close();
+          _all_customer(1, '', '');
+        }else{
+          $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+          $('#submit_btn').html(btn_text);
+          document.getElementById('submit_btn').disabled=false;
+        }
+        }
+      })
+      .catch(error => {
+      $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+      $('#submit_btn').html(btn_text);
+      document.getElementById('submit_btn').disabled = false;
+      });
+      
+    }
+    }
+
+    function _all_branch(page, status_id) {
+      $('#fetch_all_branch').html('<div class="ajax-loader"><br><img src="src/all-images/image-pix/ajax-loader.gif"/></div>').fadeIn(500);
+      var search_txt = $('#search').val();
+      var status_id = $('#status_id').val();
+    
+      var formData = 'search_txt=' + search_txt + '&status_id=' + status_id;
+    
+      axios.post(endpoint + '/admin/fetch-all-branch-api?access_key=' + access_key + '&page=' + page, formData, { headers: apikey })
+          .then(response => {
+              var access_check = response.data.check;
+              var success = response.data.success;
+              var message = response.data.message;
+              var fetch = response.data.data;
+              var pagination = response.data.pagination;
+    
+              if (access_check == 0) {
+                  _logout_();
+              } else {
+                  var text = '';
+    
+                  if (success == true) {
+                      if (fetch.length > 0) {
+                          text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>BRANCH ID</th><th>BRANCH NAME</th><th>BRANCH EMAIL ADDRESS</th><th>BRANCH MOBILE NUMBER</th><th>CREATED TIME</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody class="bg-white">';
+                          for (var i = 0; i < fetch.length; i++) {
+                              var branch = fetch[i];
+                              var branch_id = branch.branch_id;
+                              var branch_name = branch.branch_name.toUpperCase();
+                              var branch_email = branch.branch_email;
+                              var branch_mobile_number = branch.branch_mobile_number;
+                              var created_at = branch.created_time;
+                              var status_name = branch.status_name;
+    
+                              text +=
+                                  '<tr>'+
+                                      '<td>' + (i + 1) + '</td>'+
+                                      '<td>' + branch_id + '</td>'+
+                                      '<td>' + branch_name + '</td>'+
+                                      '<td>' + branch_email + '</td>'+
+                                      '<td>' + branch_mobile_number + '</td>'+
+                                      '<td>' + created_at + '</td>'+
+                                      '<td>' + status_name + '</td>'+
+                                      '<td><i onclick="_get_form_with_id(' + "'update-branch'" + "," + "'" + branch_id + "'" + ')" class="bi bi-pencil-square text-[15px] text-white p-[8px] bg-primary-color cursor-pointer hover:bg-[#444444]" title="VIEW PROFILE"></i></td>'+
+                                  '</tr>';
+                          }
+                          text += '</tbody></table>' +
+    
+                          '<div class="my-[10px] flex justify-between">'+
+                              '<div class="text-[#3a4669]">Showing ' + pagination.current_page + ' to ' + pagination.total_pages + ' of ' + pagination.total_branch + ' entries</div>'+
+                              '<div class="flex gap-1">'+
+                                  '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.prev_page ? 'onclick="_all_branch(' + pagination.prev_page + ', \'' + status_id + '\')"' : 'disabled') + '>PREVIOUS</button>' +
+                                  '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.next_page ? 'onclick="_all_branch(' + pagination.next_page + ', \'' + status_id + '\')"' : 'disabled') + '>NEXT</button>'+
+                              '</div>'+
+                          '</div>';
+    
+                      } 
+    
+                      $('#fetch_all_branch').html(text);
+                  } else {
+            text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>BRANCH ID</th><th>BRANCH NAME</th><th>BRANCH EMAIL ADDRESS</th><th>BRANCH MOBILE NUMBER</th><th>CREATED TIME</th><th>STATUS</th><th>ACTION</th></tr></thead>' +
+            '<tbody class="bg-white">' + 
+            '</tbody></table>' + 
+            '<div class="bg-[#FAF3F0] text-[#3a4669] border-[#F2BDA2] border-[1px] w-[100%] mx-auto mt-[5px] flex gap-1 p-[10px] pl-[30px] text-[12px]">' +
+            '<i class="bi bi-bell"></i><p>' + message + '</p>' +
+            '</div>';
+    
+                    $('#fetch_all_branch').html(text);
+                  }
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching branches:', error);
+              $('#fetch_all_branch').html('<p>There was an error fetching the branches. Please try again later.</p>');
+          });
+    }
+
+    function _get_each_branch(branch_id){
+
+      var formData = 'branch_id=' + branch_id;
+      
+      axios.post(endpoint+'/admin/fetch-all-branch-api?access_key='+access_key, formData, { headers: apikey })
+        .then(response => {
+        var access_check = response.data.check;
+        var success = response.data.success;
+      
+        if (access_check==0){
+          _logout_();
+        }else{
+      
+          if (success==true){
+                var branch_data = response.data.data[0];
+                var branch_name = branch_data.branch_name;
+                var branch_email = branch_data.branch_email;
+                var address = branch_data.branch_address;
+                var branch_zipcode = branch_data.branch_zipcode;
+                var branch_sortcode = branch_data.branch_sortcode;
+                var country_id = branch_data.country_id;
+                var country_name = branch_data.country_name.toUpperCase();
+                var state_id = branch_data.state_id;
+                var state_name = branch_data.state_name.toUpperCase();
+                var lga_id = branch_data.lga_id;
+                var lga_name = branch_data.lga_name.toUpperCase();
+                var status_id = branch_data.status_id;
+                var status_name = branch_data.status_name;
+                var branch_mobile_number = branch_data.branch_mobile_number;
+    
+                $('#branch_name').val(branch_name);
+                $('#branch_email').val(branch_email);
+                $('#address').val(address);
+                $('#branch_zipcode').val(branch_zipcode);
+                $('#branch_sortcode').val(branch_sortcode);
+                $('#branch_mobile_number').val(branch_mobile_number);
+    
+              $("#country_id").append('<option value="' + country_id + '" selected="selected">' + country_name +"</option>");
+              $("#state_id").append('<option value="' + state_id + '" selected="selected">' + state_name +"</option>");
+              $("#lga_id").append('<option value="' + lga_id + '" selected="selected">' + lga_name +"</option>");
+              $("#status_id").append('<option value="' + status_id + '" selected="selected">' + status_name +"</option>");
+      
+          }
+        }
+      });
+    }
+
+    function _get_country() {
+      axios.post(endpoint + '/admin/fetch-country-api?access_key=' + access_key, null, { headers: apikey })
+      .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var fetch = response.data.data;
+    
+          var text = '';
+          if (access_check == 0) {
+              _logout_(); 
+          } else {
+              if (success == true) {
+                  for (var i = 0; i < fetch.length; i++) {
+                      var country_id = fetch[i].country_id;
+                      var country_name = fetch[i].country_name.toUpperCase();
+                      text += '<option value="' + country_id + '">' + country_name + '</option>';
+                  }
+                  $('#country_id').html('<option value="">== SELECT COUNTRY ==</option>' + text);
+              }
+          }
+      });
+    }
+
+    function _get_state(country_id) {
+      if (!country_id) {
+          return;
+      }
+    formData='country_id=' + country_id
+    
+      axios.post(endpoint + '/admin/fetch-state-api?access_key=' + access_key, formData, { headers: apikey })
+      .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var fetch = response.data.data;
+    
+          var text = '';
+          if (access_check == 0) {
+              _logout_(); 
+          } else {
+              if (success == true) {
+                  for (var i = 0; i < fetch.length; i++) {
+                      var state_id = fetch[i].state_id;
+                      var state_name = fetch[i].state_name.toUpperCase();
+                      text += '<option value="' + state_id + '">' + state_name + '</option>';
+                  }
+                  $('#state_id').html('<option value="">== SELECT STATE ==</option>' + text);
+              }
+          }
+      });
+    }
+
+    function _get_lga(state_id) {
+      if (!state_id) {
+          return;
+      }
+    formData='state_id=' + state_id
+    
+      axios.post(endpoint + '/admin/fetch-lga-api?access_key=' + access_key, formData, { headers: apikey })
+      .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var fetch = response.data.data;
+    
+          var text = '';
+          if (access_check == 0) {
+              _logout_(); 
+          } else {
+              if (success == true) {
+                  for (var i = 0; i < fetch.length; i++) {
+                      var lga_id = fetch[i].lga_id;
+                      var lga_name = fetch[i].lga_name.toUpperCase();
+                      text += '<option value="' + lga_id + '">' + lga_name + '</option>';
+                  }
+                  $('#lga_id').html('<option value="">== SELECT LOCAL GOVERNMENT ==</option>' + text);
+              }
+          }
+      });
+    }
+
+    function _add_new_branch(){
+      var branch_name = $('#branch_name').val();
+      var branch_email = $('#branch_email').val();
+      var branch_mobile_number = $('#branch_mobile_number').val();
+      var address = $('#address').val();
+      var branch_zipcode = $('#branch_zipcode').val();
+      var branch_sortcode = $('#branch_sortcode').val();
+      var state_id = $('#state_id').val();
+      var lga_id = $('#lga_id').val();
+      var status_id = $('#status_id').val();
+      
+      if (branch_name==''){
+        showError('BRANCH NAME ERROR!', 'Fill all Fields To Continue');
+      }else if (branch_email == '') {
+        showError('BRANCH EMAIL ERROR!', 'Fill all Fields To Continue');
+        } else if (address == '') {
+        showError('BRANCH ADDRESS ERROR!', 'Fill all Fields To Continue');
+        } else if (branch_zipcode == '') {
+        showError('BRANCH ZIPCODE ERROR!', 'Fill all Fields To Continue');
+        } else if (branch_sortcode == '') {
+        showError('BRANCH SORTCODE ERROR!', 'Fill all Fields To Continue');
+        }else if (country_id==''){
+          showError('COUNTRY ERROR!', 'Please select a country');
+        }else if (state_id==''){
+          showError('STATE ERROR!', 'Please select a state');
+        }else if (lga_id==''){
+          showError('LOCAL GOVERNMENT ERROR!', 'Please select a local government');
+        }else if (address==''){
+          showError('ADDRESS ERROR!', 'Fill all Fields To Continue');
+        }else if (status_id==''){
+          showError('STATUS ERROR!', 'Please select a status');
+      
+      }else{
+      
+        var btn_text  = $('#submit_btn').html();
+        $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> PROCESSING...');
+        document.getElementById('submit_btn').disabled = true;
+      
+        var formData ='branch_name=' + branch_name + '&branch_email=' + branch_email + '&branch_mobile_number=' + branch_mobile_number + '&address=' + address + '&branch_zipcode=' + branch_zipcode + '&branch_sortcode=' + branch_sortcode + '&lga_id=' + lga_id + '&status_id=' + status_id;
+    
+        axios.post(endpoint + '/admin/add-new-branch-api?access_key=' + access_key, formData, { headers: apikey })
+        .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var message = response.data.message;
+    
+          if (access_check == 0) {
+            _logout_(); 
+          } else {
+          if (success == true) {
+            $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+            $('#submit_btn').html(btn_text);
+            document.getElementById('submit_btn').disabled=false;
+            alert_close();
+            _all_branch(1, '');
+          }else{
+            $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+            $('#submit_btn').html(btn_text);
+            document.getElementById('submit_btn').disabled=false;
+          }
+          }
+        })
+        .catch(error => {
+        $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+        $('#submit_btn').html(btn_text);
+        document.getElementById('submit_btn').disabled = false;
+        });
+        
+      }
+      }
+
+      function fetchDepartment(page, department_id) {
+        $('#fetch_all_department').html('<div class="ajax-loader"><br><img src="src/all-images/image-pix/ajax-loader.gif"/></div>').fadeIn(500);
+        var search_txt = $('#search').val();
+      
+        var formData = 'department_id=' + department_id + '&search_txt=' + search_txt;
+      
+        axios.post(endpoint + '/admin/fetch-department-api?access_key=' + access_key + '&page=' + page, formData, { headers: apikey })
+            .then(response => {
+                var access_check = response.data.check;
+                var success = response.data.success;
+                var message = response.data.message;
+                var fetch = response.data.data;
+                var pagination = response.data.pagination;
+      
+                if (access_check == 0) {
+                    _logout_();
+                } else {
+                    var text = '';
+      
+                    if (success == true) {
+                        if (fetch.length > 0) {
+                            text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>DEPARTMENT NAME</th><th>DATE CREATED</th><th>ACTION</th></tr></thead><tbody class="bg-white">';
+                            for (var i = 0; i < fetch.length; i++) {
+                                var department_id = fetch[i].department_id;
+                                var department_name = fetch[i].department_name.toUpperCase();
+                                var created_time = fetch[i].created_time;
+      
+                                text +=
+                                '<tr>'+
+                                    '<td>' + (i + 1) + '</td>'+
+                                    '<td>' + department_name + '</td>'+
+                                    '<td>' + created_time + '</td>'+
+                                    '<td><i onclick="_get_form_with_id(' + "'update-department'" + "," + "'" + department_id + "'" + ')" class="bi bi-pencil-square text-[15px] text-white p-[8px] bg-primary-color cursor-pointer hover:bg-[#444444]" title="VIEW DEPARTMENT"></i></td>'+
+                                '</tr>';
+                            }
+                            text += '</tbody></table>'+
+      
+                            '<div class="my-[10px] flex justify-between">'+
+                                '<div class="text-[#3a4669]">Showing ' + pagination.current_page + ' to ' + pagination.total_pages + ' of ' + pagination.total_department + ' entries</div>'+
+                                '<div class="flex gap-1">'+
+                                    '<button class="text-sm py-[8px] px-[15px]" ' +(pagination.prev_page ? 'onclick="fetchDepartment(' + pagination.prev_page + ', \'\')"' : 'disabled') +'>PREVIOUS</button>' +
+                                    '<button class="text-sm py-[8px] px-[15px]" ' +(pagination.next_page ? 'onclick="fetchDepartment(' + pagination.next_page + ', \'\')"' : 'disabled') +'>NEXT</button>';
+                                '</div>'+
+                            '</div>';
+      
+                        } 
+      
+                        $('#fetch_all_department').html(text);
+                    } else {
+                        text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>DEPARTMENT NAME</th><th>DATE CREATED</th><th>ACTION</th></tr></thead>' +
+                        '<tbody class="bg-white">' + 
+                        '</tbody></table>' + 
+                        '<div class="bg-[#FAF3F0] text-[#3a4669] border-[#F2BDA2] border-[1px] w-[100%] mx-auto mt-[5px] flex gap-1 p-[10px] pl-[30px] text-[12px]">' +
+                        '<i class="bi bi-bell"></i><p>' + message + '</p>' +
+                        '</div>';
+                 
+                        $('#fetch_all_department').html(text);
+                 
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching department:', error);
+                $('#fetch_all_department').html('<p>There was an error fetching the department. Please try again later.</p>');
+            });
+      }
+
+      function _get_each_department(department_id){
+
+        var formData = 'department_id=' + department_id;
+        
+        axios.post(endpoint+'/admin/fetch-department-api?access_key='+access_key, formData, { headers: apikey })
+          .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+        
+          if (access_check==0){
+            _logout_();
+          }else{
+        
+            if (success==true){
+                  var department_data = response.data.data[0];
+                  department_name = department_data.department_name;
+                  
+                $('#department_name').val(department_name);
+        
+            }
+          }
+        });
+      }
+
+      function _update_staff_data(staff_id){
+        var surname = $('#surname').val();
+        var othername = $('#othernames').val();
+        var fullname = surname + ' ' + othername;
+        var dob = $('#dob').val();
+        var email_address = $('#email_address').val();
+        var phoneno = $('#phoneno').val();
+        var role = $('#role_id').val();
+        var status = $('#status_id').val();
+        var gender = $('#gender_id').val();
+      
+        if (surname==''){
+          showError('SURNAME ERROR!', 'Fill all Fields To Continue');
+        }else if (email_address==''){
+          showError('EMAIL ADDRESS ERROR!', 'Fill all Fields To Continue');
+        }else if (phoneno==''){
+          showError('PHONE NUMBER ERROR!', 'Fill all Fields To Continue');
+        }else if (!validatePhoneNumber(phoneno)){
+          showError('PHONE NUMBER ERROR!', 'Fill all Fields To Continue');
+        }else if (!validateTextInput(surname)){
+          showError('SURNAME ERROR!', 'Fill all Fields To Continue');
+        }
+      
+        else{
+      
+          var btn_text  = $('#submit_btn').html();
+          $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> UPDATING...');
+          document.getElementById('submit_btn').disabled = true;
+      
+          var formData ='fullname=' + fullname + '&phoneno=' + phoneno + '&email_address=' + email_address + '&dob=' + dob + '&staff_id=' + staff_id + '&role_id=' + role + '&status_id=' + status + '&gender=' + gender;
+      
+          axios.post(endpoint + '/admin/update-staff-api?access_key=' + access_key, formData, { headers: apikey })
+      
+          .then(response => {
+            var access_check = response.data.check;
+            var success = response.data.success;
+            var message = response.data.message;
+      
+            if (access_check == 0) {
+              _logout_();
+            } else {
+            if (success == true) {
+              $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+              $('#submit_btn').html(btn_text);
+              document.getElementById('submit_btn').disabled=false;
+               // _all_staff('');
+            }else{
+              $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                $('#submit_btn').html(btn_text);
+                document.getElementById('submit_btn').disabled=false;
+            }
+            }
+          })
+          .catch(error => {
+          $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+          $('#submit_btn').html(btn_text);
+          document.getElementById('submit_btn').disabled = false;
+          });
+        }
+      }
 
 
 

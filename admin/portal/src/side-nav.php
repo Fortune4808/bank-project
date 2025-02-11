@@ -2,10 +2,10 @@
     <div class="mt-[70px]">
         <ul>
             <li class="side-links" onclick="_get_page('dashboard');"><i class="bi-speedometer2 text-[#3a4669] mr-[6px]"></i> Dashboard</li>
-            <li class="side-links" id="admin-page" onclick="_get_page('all-staff');" title="Admin"><i class="bi-people text-[#3a4669] mr-[6px]"></i> Admin/Staff</li>
+            <li class="side-links" id="" onclick="_get_page('all-staff');" title="Admin"><i class="bi-people text-[#3a4669] mr-[6px]"></i> Admin/Staff</li>
             <li class="side-links" onclick="_get_page('all-customer');" title="customer"><i class="bi-people text-[#3a4669] mr-[6px]"></i> All Customers</li>
-            <li class="side-links" id="" onclick="_get_page('');" title=""><i class="bi-bank2 text-[#3a4669] mr-[6px]"></i> All Branches</li>
-            <li class="side-links" id="" onclick="_get_page('');" title=""><i class="bi-pc-display-horizontal text-[#3a4669] mr-[6px]"></i> All Departments</li>
+            <li class="side-links" id="" onclick="_get_page('all-branch');" title=""><i class="bi-bank2 text-[#3a4669] mr-[6px]"></i> All Branches</li>
+            <li class="side-links" id="" onclick="_get_page('department-module');" title=""><i class="bi-pc-display-horizontal text-[#3a4669] mr-[6px]"></i> All Departments</li>
             <li class="side-links" onclick="_expand_link('transaction');"  title="">  <i class="bi-arrow-left-right text-[#3a4669] mr-[6px]"></i> Transaction  <i class="bi bi-chevron-down float-right mr-[15px]"></i>
                 <div class="w-[100%] bg-[#f4f6fa]" id="transaction-li" style="display:none">
                     <div class="li-in" id="" onClick=""> - All Loan Requests</div>
