@@ -8,8 +8,8 @@
             <li class="side-links" id="" onclick="_get_page('department-module');" title=""><i class="bi-pc-display-horizontal text-[#3a4669] mr-[6px]"></i> All Departments</li>
             <li class="side-links" onclick="_expand_link('transaction');"  title="">  <i class="bi-arrow-left-right text-[#3a4669] mr-[6px]"></i> Transaction  <i class="bi bi-chevron-down float-right mr-[15px]"></i>
                 <div class="w-[100%] bg-[#f4f6fa]" id="transaction-li" style="display:none">
-                    <div class="li-in" id="" onClick=""> - All Loan Requests</div>
-                    <div class="li-in" onClick="_get_form('');"> - Deposit Money</div>
+                    <div class="li-in" id="" onClick="_get_page('all-loan-request')"> - All Loan Requests</div>
+                    <div class="li-in" onClick="_get_form('deposit');"> - Deposit Money</div>
                     <div class="li-in" onClick="_get_form('');"> - Transfer Money</div>
                     <div class="li-in" onClick=""> - Transaction History</div>
                 </div>

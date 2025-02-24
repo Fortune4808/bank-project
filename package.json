@@ -1,15 +1,18 @@
 {
   "devDependencies": {
     "autoprefixer": "^10.4.20",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.15"
   },
   "scripts": {
     "dev": "npx tailwindcss -i ./admin/portal/src/styles/main.css -o ./admin/portal/src/styles/output.css --watch",
-    "dev2": "npx tailwindcss -i ./student/src/styles/input.css -o ./student/src/styles/output.css --watch"
+    "dev2": "npx tailwindcss -i ./admin/src/styles/main.css -o ./admin/portal/src/styles/output.css --watch",
+    "build": "cross-env NODE_ENV=production npx tailwindcss -i ./admin/portal/src/styles/main.css -o ./admin/portal/src/styles/output.css --minify",
+    "build2": "cross-env NODE_ENV=production npx tailwindcss -i ./admin/src/styles/main.css -o ./admin/src/styles/output.css --minify"
   },
   "dependencies": {
     "axios": "^1.7.8",
-    "sweetalert2": "^11.14.5"
+    "sweetalert2": "^11.17.2"
   }
 }

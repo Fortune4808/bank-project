@@ -96,6 +96,7 @@ function _get_staff_login(staff_id){
         var last_name = staff_data.last_name;
         var last_login = staff_data.last_login;
         var position_name = staff_data.position_name;
+        var post_id = staff_data.position_id
         var status_name = staff_data.status_name;
         var role_name = staff_data.role_name;
         var date_of_birth = staff_data.date_of_birth;
@@ -105,7 +106,9 @@ function _get_staff_login(staff_id){
         var mobile_number = staff_data.mobile_number;
         var staff_id = staff_data.staff_id;
         var branch_name = staff_data.branch_name;
+        var branch_id = staff_data.branch_id;
         var department_name = staff_data.department_name;
+        var department_id = staff_data.department_id;
         var date_of_reg = staff_data.created_time;
         var status_id = staff_data.status_id;
         var role_id = staff_data.role_id;
@@ -117,6 +120,12 @@ function _get_staff_login(staff_id){
         var id_number = staff_data.id_number;
         var qualification = staff_data.qualification_name;
         var qualification_id = staff_data.qualification_id;
+        var country_id = staff_data.country_id;
+        var country_name = staff_data.country_name.toUpperCase();
+        var state_id = staff_data.state_id;
+        var state_name = staff_data.state_name.toUpperCase();
+        var lga_id = staff_data.lga_id;
+        var lga_name = staff_data.lga_name.toUpperCase();
 
         var fullname = first_name + ' ' + middle_name + ' ' + last_name
         var staff_profile = capitalizeWords(fullname);
@@ -134,15 +143,19 @@ function _get_staff_login(staff_id){
        
         $("#role").val(role_name);
         $("#status").val(status_name);
-        $("#surname").val(first_name);
-        $("#othernames").val(middle_name + ' ' + last_name);
+        $("#firstname").val(first_name);
+        $("#middlename").val(middle_name);
+        $("#lastname").val(last_name);
         $("#dob").val(date_of_birth);
         $("#email_address").val(email_address);
         $("#phoneno").val(mobile_number);
         $("#staff_id").val(staff_id);
         $("#post").val(position_name);
-        $("#branch_id").val(branch_name);
-        $("#department_id").val(department_name);
+        $("#post_id").val(post_id);
+        $("#branch_name").val(branch_name);
+        $("#branch_id").val(branch_id);
+        $("#department_id").val(department_id);
+        $("#department_name").val(department_name);
         $("#r_date").val(date_of_reg);
         $("#last_login_date").val(last_login);
         $("#role_id").val(role_id);
@@ -154,6 +167,9 @@ function _get_staff_login(staff_id){
         $("#marital_status_id").append('<option value="' + marital_status_id + '" selected="selected">' + marital_status_name +"</option>");
         $("#qualification_id").append('<option value="' + qualification_id + '" selected="selected">' + qualification +"</option>");
         $("#identification_id").append('<option value="' + identification_id + '" selected="selected">' + identification_type +"</option>");
+        $("#country_id").append('<option value="' + country_id + '" selected="selected">' + country_name +"</option>");
+        $("#state_id").append('<option value="' + state_id + '" selected="selected">' + state_name +"</option>");
+        $("#lga_id").append('<option value="' + lga_id + '" selected="selected">' + lga_name +"</option>");
 
         $("#pictureBox2, #pictureBox1").attr('src', documentStoragePath);
 
@@ -276,6 +292,12 @@ function _get_staff_profile(staff_id){
         var qualification_id = staff_data.qualification_id;
         var registered_staff_id = staff_data.registered_staff_id;
         var registered_fullname = staff_data.registered_fullname;
+        var country_id = staff_data.country_id;
+        var country_name = staff_data.country_name.toUpperCase();
+        var state_id = staff_data.state_id;
+        var state_name = staff_data.state_name.toUpperCase();
+        var lga_id = staff_data.lga_id;
+        var lga_name = staff_data.lga_name.toUpperCase();
 
         var fullname = first_name + ' ' + middle_name + ' ' + last_name
         var staff_profile = capitalizeWords(fullname);
@@ -289,8 +311,9 @@ function _get_staff_profile(staff_id){
         $("#staff_profile").html(staff_profile);
         $("#status_name").html(status_name);
 
-        $("#surname").val(first_name);
-        $("#othernames").val(middle_name + ' ' + last_name);
+        $("#firstname").val(first_name);
+        $("#middlename").val(middle_name);
+        $("#lastname").val(last_name);
         $("#dob").val(date_of_birth);
         $("#email_address").val(email_address);
         $("#phoneno").val(mobile_number);
@@ -313,6 +336,9 @@ function _get_staff_profile(staff_id){
         $("#department_id").append('<option value="' + department_id + '" selected="selected">' + department_name +"</option>");
         $("#role_id").append('<option value="' + role_id + '" selected="selected">' + role_name +"</option>");
         $("#status_id").append('<option value="' + status_id + '" selected="selected">' + status_name +"</option>");
+        $("#country_id").append('<option value="' + country_id + '" selected="selected">' + country_name +"</option>");
+        $("#state_id").append('<option value="' + state_id + '" selected="selected">' + state_name +"</option>");
+        $("#lga_id").append('<option value="' + lga_id + '" selected="selected">' + lga_name +"</option>");
         
 
         $("#staff_passport").attr('src', documentStoragePath);
@@ -434,6 +460,7 @@ function _get_customer_profile(customer_id){
             var email_address = customer_data.email;
             var mobile_number = customer_data.mobile_number;
             var branch_name = customer_data.branch_name;
+            var branch_id = customer_data.branch_id;
             var customer_type_id = customer_data.customer_type_id;
             var customer_type_name = customer_data.customer_type_name;
             var account_type_id = customer_data.account_type_id;
@@ -442,6 +469,12 @@ function _get_customer_profile(customer_id){
             var status_name = customer_data.status_name;
             var customer_id = customer_data.customer_id;
             var date_of_reg = customer_data.created_time;
+            var country_id = customer_data.country_id;
+            var country_name = customer_data.country_name.toUpperCase();
+            var state_id = customer_data.state_id;
+            var state_name = customer_data.state_name.toUpperCase();
+            var lga_id = customer_data.lga_id;
+            var lga_name = customer_data.lga_name.toUpperCase();
            
             var passport = customer_data.passport;
             var documentStoragePath = customer_data.documentStoragePath + '/' + passport;
@@ -449,15 +482,17 @@ function _get_customer_profile(customer_id){
             $('#fullname').html(fullname);
             $('#last_login').html(last_login);
 
-            $('#surname').val(first_name);
-            $('#othernames').val(middle_name + ' ' + last_name);
+            $('#firstname').val(first_name);
+            $('#middlename').val(middle_name);
+            $('#lastname').val(last_name);
             $('#dob').val(dob);
             $('#gender_id').val(dob);
             $('#id_number').val(id_number);
             $('#address').val(address);
             $("#email_address").val(email_address);
             $("#mobileno").val(mobile_number);
-            $("#branch_id").val(branch_name);
+            $("#branch_name").val(branch_name);
+            $("#branch_id").val(branch_id);
             $("#customer_id").val(customer_id);
             $("#reg_date").val(date_of_reg);
 
@@ -469,6 +504,9 @@ function _get_customer_profile(customer_id){
           $("#customer_type_id").append('<option value="' + customer_type_id + '" selected="selected">' + customer_type_name +"</option>");
           $("#account_id").append('<option value="' + account_type_id + '" selected="selected">' + account_type_name +"</option>");
           $("#status_id").append('<option value="' + status_id + '" selected="selected">' + status_name +"</option>");
+          $("#country_id").append('<option value="' + country_id + '" selected="selected">' + country_name +"</option>");
+          $("#state_id").append('<option value="' + state_id + '" selected="selected">' + state_name +"</option>");
+          $("#lga_id").append('<option value="' + lga_id + '" selected="selected">' + lga_name +"</option>");
   
 		  }
 		}
@@ -782,7 +820,7 @@ function _add_new_staff(){
 				$('#submit_btn').html(btn_text);
 				document.getElementById('submit_btn').disabled=false;
 				alert_close();
-				_all_staff(1, 2, '', '');
+				_all_staff();
 			}else{
 				$('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
           		$('#submit_btn').html(btn_text);
@@ -1316,66 +1354,723 @@ function _add_new_staff(){
         });
       }
 
-      function _update_staff_data(staff_id){
-        var surname = $('#surname').val();
-        var othername = $('#othernames').val();
-        var fullname = surname + ' ' + othername;
+      function _all_loan(page, status_id) {
+        $('#fetch_all_loan').html('<div class="ajax-loader"><br><img src="src/all-images/image-pix/ajax-loader.gif"/></div>').fadeIn(500);
+        var search_txt = $('#search').val();
+        var status_id = $('#status_id').val();
+      
+        var formData = 'search_txt=' + search_txt + '&status_id=' + status_id;
+      
+        axios.post(endpoint + '/admin/fetch-all-loan-requests-api?access_key=' + access_key + '&page=' + page, formData, { headers: apikey })
+            .then(response => {
+                var access_check = response.data.check;
+                var success = response.data.success;
+                var message = response.data.message;
+                var fetch = response.data.data;
+                var pagination = response.data.pagination;
+      
+                if (access_check == 0) {
+                    _logout_();
+                } else {
+                    var text = '';
+      
+                    if (success == true) {
+                        if (fetch.length > 0) {
+                          text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>PASSPORT</th><th>LOAN ID</th><th>FULLNAME</th><th>LOAN AMOUNT</th><th>LOAN DURATION</th><th>BRANCH</th><th>ACTION</th></tr></thead><tbody class="bg-white">';
+                          for (var i = 0; i < fetch.length; i++) {
+                              var loan_request = fetch[i];
+                              var loan_id = loan_request.loan_id;
+                              var first_name = loan_request.first_name.toUpperCase();
+                              var middle_name = loan_request.middle_name.toUpperCase();
+                              var last_name = loan_request.last_name.toUpperCase();
+                              var loan_amount = loan_request.formatted_loan_amount;
+                              var loan_duration = loan_request.loan_duration;
+                              var branch_name = loan_request.branch_name;
+                              var passport = loan_request.passport;
+                              var documentStoragePath = loan_request.documentStoragePath;
+    
+                              text +=
+                                  '<tr>'+
+                                      '<td>' + (i + 1) + '</td>'+
+                                      '<td><div class="w-[25px] h-[25px] rounded-full"><img class="w-[100%] h-[100%] object-cover rounded-full" src="' + documentStoragePath + '/' + passport + '" alt=""></div></td>'+
+                                      '<td>'+ loan_id +'</td>'+
+                                      '<td>' + first_name + ' ' + middle_name + ' ' + last_name +  '</td>'+
+                                      '<td>'+ 'N ' + loan_amount + '</td>'+
+                                      '<td>' + loan_duration + '</td>'+
+                                      '<td>' + branch_name + '</td>'+
+                                      '<td><i onclick="_get_form_with_id(' + "'customer-loan-module'" + "," + "'" + loan_id + "'" + ')" class="bi bi-pencil-square text-[15px] text-white p-[8px] bg-primary-color cursor-pointer hover:bg-[#444444]" title="VIEW PROFILE"></i></td>'+
+                                  '</tr>';
+                          }
+                            text += '</tbody></table>' +
+      
+                            '<div class="my-[10px] flex justify-between">'+
+                                '<div class="text-[#3a4669]">Showing ' + pagination.current_page + ' to ' + pagination.total_pages + ' of ' + pagination.total_loan + ' entries</div>'+
+                                '<div class="flex gap-1">'+
+                                    '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.prev_page ? 'onclick="_all_loan(' + pagination.prev_page + ', \'' + status_id + '\')"' : 'disabled') + '>PREVIOUS</button>' +
+                                    '<button class="text-sm py-[8px] px-[15px]" ' + (pagination.next_page ? 'onclick="_all_loan(' + pagination.next_page + ', \'' + status_id + '\')"' : 'disabled') + '>NEXT</button>'+
+                                '</div>'+
+                            '</div>';
+      
+                        } 
+      
+                        $('#fetch_all_loan').html(text);
+                    } else {
+              text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>PASSPORT</th><th>LOAN ID</th><th>FULLNAME</th><th>LOAN AMOUNT</th><th>LOAN DURATION</th><th>BRANCH</th><th>ACTION</th></tr></thead>' +
+              '<tbody class="bg-white">' + 
+              '</tbody></table>' + 
+              '<div class="bg-[#FAF3F0] text-[#3a4669] border-[#F2BDA2] border-[1px] w-[100%] mx-auto mt-[5px] flex gap-1 p-[10px] pl-[30px] text-[12px]">' +
+              '<i class="bi bi-bell"></i><p>' + message + '</p>' +
+              '</div>';
+      
+                      $('#fetch_all_loan').html(text);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching loan requests:', error);
+                $('#fetch_all_loan').html('<p>There was an error fetching the loan requests. Please try again later.</p>');
+            });
+      }
+
+      function _get_each_loan(loan_id){
+
+        var formData = 'loan_id=' + loan_id;
+        
+        axios.post(endpoint+'/admin/fetch-all-loan-requests-api?access_key='+access_key, formData, { headers: apikey })
+          .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+        
+          if (access_check==0){
+            _logout_();
+          }else{
+        
+            if (success==true){
+                  var loan_data = response.data.data[0];
+                  var last_login = loan_data.last_login;
+                  var first_name = loan_data.first_name;
+                  var middle_name = loan_data.middle_name;
+                  var last_name = loan_data.last_name;
+                  var othername = middle_name + ' ' + last_name;
+                  var loan_id = loan_data.loan_id;
+                  var loan_amount = loan_data.formatted_loan_amount;
+                  var loan_duration = loan_data.loan_duration;
+                  var loan_date = loan_data.loan_date;
+                  var branch_name = loan_data.branch_name;
+                  var customer_type_name = loan_data.customer_type_name;
+                  var account_type_name = loan_data.account_type_name;
+                  var customer_id = loan_data.customer_id;
+                  var created_time = loan_data.created_time;
+
+                  var passport = loan_data.passport;
+                  var documentStoragePath = loan_data.documentStoragePath + '/' + passport;
+      
+                  $('#last_login').html(last_login);
+
+                  $('#fullname').html(first_name + ' ' + middle_name + ' ' + last_name);
+
+                  $('#last_login').val(last_login);
+                  $('#surname').val(first_name);
+                  $('#othernames').val(othername);
+                  $('#loan_id').val(loan_id);
+                  $('#loan_amount').val(loan_amount);
+                  $('#loan_duration').val(loan_duration);
+                  $('#date').val(loan_date);
+                  $('#branch_id').val(branch_name);
+                  $('#customer_type_id').val(customer_type_name);
+                  $('#account_type_id').val(account_type_name);
+                  $('#customer_id').val(customer_id);
+                  $('#reg_date').val(created_time);
+
+                  $("#customer_pic").attr('src', documentStoragePath);
+        
+            }
+          }
+        });
+      }
+
+      function _loan_reschedule(loan_id) {
+        $('#fetch_all_loan_reschedule').html('<div class="ajax-loader"><br><img src="src/all-images/image-pix/ajax-loader.gif"/></div>').fadeIn(500);
+      
+        var formData = 'loan_id=' + loan_id;
+      
+        axios.post(endpoint + '/admin/fetch-all-loan-schedule-api?access_key=' + access_key, formData, { headers: apikey })
+            .then(response => {
+                var access_check = response.data.check;
+                var success = response.data.success;
+                var message = response.data.message;
+                var fetch = response.data.data;
+      
+                if (access_check == 0) {
+                    _logout_();
+                } else {
+                    var text = '';
+      
+                    if (success == true) {
+                        if (fetch.length > 0) {
+                          text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>LOAN ID</th><th>MONTH</th><th>LOAN BALANCE</th><th>SUB PAYMENT</th><th>INTEREST</th><th>TOTAL REPAYMENT</th><th>TRANSACTION DATE</th></tr></thead><tbody class="bg-white">';
+                          for (var i = 0; i < fetch.length; i++) {
+                              var _loan_schedule = fetch[i];
+                              var loan_id = _loan_schedule.loan_id;
+                              var month = _loan_schedule.month;
+                              var principal = _loan_schedule.formatted_principal;
+                              var monthly_repayment = _loan_schedule.formatted_monthly_repayment;
+                              var interest = _loan_schedule.formmatted_interest;
+                              var total_repayment = _loan_schedule.formatted_monthly_repayment;
+                              var date = _loan_schedule.loan_date;
+    
+                              text +=
+                                  '<tr>'+
+                                      '<td>' + (i + 1) + '</td>'+
+                                      '<td>'+ loan_id +'</td>'+
+                                      '<td>' + month + '</td>'+
+                                      '<td>'+ principal +'</td>'+
+                                      '<td>' + monthly_repayment + '</td>'+
+                                      '<td>' + interest + '</td>'+
+                                      '<td>' + total_repayment + '</td>'+
+                                      '<td>' + date + '</td>'+
+                                  '</tr>';
+                          }
+                            text += '</tbody></table>';
+      
+                        } 
+      
+                        $('#fetch_all_loan_reschedule').html(text);
+                    } else {
+              text = '<table class="w-[100%] border-collapse"><thead><tr><th>SN</th><th>PASSPORT</th><th>LOAN ID</th><th>FULLNAME</th><th>LOAN AMOUNT</th><th>LOAN DURATION</th><th>BRANCH</th><th>ACTION</th></tr></thead>' +
+              '<tbody class="bg-white">' + 
+              '</tbody></table>' + 
+              '<div class="bg-[#FAF3F0] text-[#3a4669] border-[#F2BDA2] border-[1px] w-[100%] mx-auto mt-[5px] flex gap-1 p-[10px] pl-[30px] text-[12px]">' +
+              '<i class="bi bi-bell"></i><p>' + message + '</p>' +
+              '</div>';
+      
+                      $('#fetch_all_loan_reschedule').html(text);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching loan reschedule:', error);
+                $('#fetch_all_loan_reschedule').html('<p>There was an error fetching the loan reschedule. Please try again later.</p>');
+            });
+      }
+
+      function _update_staff_data(staff_id) {
+        var firstname = $('#firstname').val();
+        var middlename = $('#middlename').val();
+        var lastname = $('#lastname').val();
         var dob = $('#dob').val();
+        var gender_id = $('#gender_id').val();
+        var marital_status_id = $('#marital_status_id').val();
+        var identification_id = $('#identification_id').val();
+        var id_number = $('#id_number').val();
         var email_address = $('#email_address').val();
         var phoneno = $('#phoneno').val();
-        var role = $('#role_id').val();
-        var status = $('#status_id').val();
-        var gender = $('#gender_id').val();
-      
-        if (surname==''){
-          showError('SURNAME ERROR!', 'Fill all Fields To Continue');
-        }else if (email_address==''){
-          showError('EMAIL ADDRESS ERROR!', 'Fill all Fields To Continue');
-        }else if (phoneno==''){
-          showError('PHONE NUMBER ERROR!', 'Fill all Fields To Continue');
-        }else if (!validatePhoneNumber(phoneno)){
-          showError('PHONE NUMBER ERROR!', 'Fill all Fields To Continue');
-        }else if (!validateTextInput(surname)){
-          showError('SURNAME ERROR!', 'Fill all Fields To Continue');
+        var address = $('#address').val();
+        var post_id = $('#post_id').val();
+        var branch_id = $('#branch_id').val();
+        var department_id = $('#department_id').val();
+        var status_id = $('#status_id').val();
+        var role_id = $('#role_id').val();
+        var lga_id = $('#lga_id').val();
+        var qualification_id = $('#qualification_id').val();
+        
+        if (firstname == '') {
+            showError('FIRST NAME ERROR!', 'Please fill in the first name.');
+        } else if (lastname == '') {
+            showError('LAST NAME ERROR!', 'Please fill in the last name.');
+        } else if (email_address == '') {
+            showError('EMAIL ADDRESS ERROR!', 'Please fill in the email address.');
+        } else if (phoneno == '') {
+            showError('PHONE NUMBER ERROR!', 'Please fill in the phone number.');
+        } else if (address == '') {
+            showError('ADDRESS ERROR!', 'Please fill in the address.');
+        } else if (post_id == '') {
+            showError('POST ERROR!', 'Please fill in the post ID.');
+        } else if (branch_id == '') {
+            showError('BRANCH ERROR!', 'Please fill in the branch ID.');
+        } else if (department_id == '') {
+            showError('DEPARTMENT ERROR!', 'Please fill in the department ID.');
+        } else if (!validatePhoneNumber(phoneno)) {
+            showError('PHONE NUMBER ERROR!', 'Invalid phone number format.');
+        } else if (!validateTextInput(firstname) || !validateTextInput(lastname)) {
+            showError('NAME ERROR!', 'Names must contain only valid characters.');
+        } else {
+            var btn_text = $('#submit_btn').html();
+            $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> UPDATING...');
+            document.getElementById('submit_btn').disabled = true;
+    
+            var formData = 'firstname=' + firstname + 
+                           '&middlename=' + middlename + 
+                           '&lastname=' + lastname + 
+                           '&dob=' + dob + 
+                           '&gender_id=' + gender_id + 
+                           '&marital_status_id=' + marital_status_id + 
+                           '&identification_id=' + identification_id + 
+                           '&id_number=' + id_number + 
+                           '&email_address=' + email_address + 
+                           '&mobile_no=' + phoneno + 
+                           '&address=' + address + 
+                           '&post_id=' + post_id + 
+                           '&branch_id=' + branch_id + 
+                           '&department_id=' + department_id + 
+                           '&role_id=' + role_id +
+                           '&status_id=' + status_id +
+                           '&qualification_id=' + qualification_id +
+                           '&lga_id=' + lga_id +
+                           '&staff_id=' + staff_id;
+    
+            axios.post(endpoint + '/admin/update-staff-api?access_key=' + access_key, formData, { headers: apikey })
+                .then(response => {
+                    var access_check = response.data.check;
+                    var success = response.data.success;
+                    var message = response.data.message;
+    
+                    if (access_check == 0) {
+                        _logout_();
+                    } else {
+                        if (success == true) {
+                            $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                            _all_staff();
+                        } else {
+                            $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                        }
+                        $('#submit_btn').html(btn_text);
+                        document.getElementById('submit_btn').disabled = false;
+                    }
+                })
+                .catch(error => {
+                    $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+                    $('#submit_btn').html(btn_text);
+                    document.getElementById('submit_btn').disabled = false;
+                });
         }
+    }
+
+    function _update_customer_data(customer_id) {
+      var firstname = $('#firstname').val();
+      var middlename = $('#middlename').val();
+      var lastname = $('#lastname').val();
+      var dob = $('#dob').val();
+      var gender_id = $('#gender_id').val();
+      var marital_status_id = $('#marital_status_id').val();
+      var identification_id = $('#identification_id').val();
+      var id_number = $('#id_number').val();
+      var email_address = $('#email_address').val();
+      var phoneno = $('#mobileno').val();
+      var address = $('#address').val();
+      var customer_type_id = $('#customer_type_id').val();
+      var branch_id = $('#branch_id').val();
+      var status_id = $('#status_id').val();
+      var account_id = $('#account_id').val();
+      var lga_id = $('#lga_id').val();
       
-        else{
-      
-          var btn_text  = $('#submit_btn').html();
+      if (firstname == '') {
+          showError('FIRST NAME ERROR!', 'Please fill in the first name.');
+      } else if (lastname == '') {
+          showError('LAST NAME ERROR!', 'Please fill in the last name.');
+      } else if (email_address == '') {
+          showError('EMAIL ADDRESS ERROR!', 'Please fill in the email address.');
+      } else if (phoneno == '') {
+          showError('PHONE NUMBER ERROR!', 'Please fill in the phone number.');
+      } else if (address == '') {
+          showError('ADDRESS ERROR!', 'Please fill in the address.');
+      } else if (customer_type_id == '') {
+          showError('CUSTOMER TYPE ERROR!', 'Please fill in the post ID.');
+      } else if (branch_id == '') {
+          showError('BRANCH ERROR!', 'Please fill in the branch ID.');
+      } else if (gender_id == '') {
+          showError('GENDER ERROR!', 'Please fill in the department ID.');
+      } else if (!validatePhoneNumber(phoneno)) {
+          showError('PHONE NUMBER ERROR!', 'Invalid phone number format.');
+      } else if (!validateTextInput(firstname) || !validateTextInput(lastname)) {
+          showError('NAME ERROR!', 'Names must contain only valid characters.');
+      } else {
+          var btn_text = $('#submit_btn').html();
           $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> UPDATING...');
           document.getElementById('submit_btn').disabled = true;
-      
-          var formData ='fullname=' + fullname + '&phoneno=' + phoneno + '&email_address=' + email_address + '&dob=' + dob + '&staff_id=' + staff_id + '&role_id=' + role + '&status_id=' + status + '&gender=' + gender;
-      
-          axios.post(endpoint + '/admin/update-staff-api?access_key=' + access_key, formData, { headers: apikey })
-      
-          .then(response => {
+  
+          var formData = 'firstname=' + firstname + 
+                         '&middlename=' + middlename + 
+                         '&lastname=' + lastname + 
+                         '&dob=' + dob + 
+                         '&gender_id=' + gender_id + 
+                         '&marital_status_id=' + marital_status_id + 
+                         '&identification_id=' + identification_id + 
+                         '&id_number=' + id_number + 
+                         '&email_address=' + email_address + 
+                         '&mobile_no=' + phoneno + 
+                         '&address=' + address + 
+                         '&customer_type_id=' + customer_type_id + 
+                         '&branch_id=' + branch_id + 
+                         '&account_type_id=' + account_id +
+                         '&status_id=' + status_id +
+                         '&lga_id=' + lga_id +
+                         '&customer_id=' + customer_id;
+  
+          axios.post(endpoint + '/admin/update-customer-api?access_key=' + access_key, formData, { headers: apikey })
+              .then(response => {
+                  var access_check = response.data.check;
+                  var success = response.data.success;
+                  var message = response.data.message;
+  
+                  if (access_check == 0) {
+                      _logout_();
+                  } else {
+                      if (success == true) {
+                          $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                          alert_close();
+                          _all_customer();
+                      } else {
+                          $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                      }
+                      $('#submit_btn').html(btn_text);
+                      document.getElementById('submit_btn').disabled = false;
+                  }
+              })
+              .catch(error => {
+                  $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+                  $('#submit_btn').html(btn_text);
+                  document.getElementById('submit_btn').disabled = false;
+              });
+      }
+  }
+
+  function fetchBackend(){
+    axios.post(endpoint+'/admin/fetch-backend-settings-api?access_key='+access_key, null, { headers: apikey })
+    .then(response => {
+        var access_check = response.data.check;
+        var success = response.data.success;
+  
+        if (access_check == 0) {
+            _logout_(); 
+        } else {
+            if (success == true) {
+                var data = response.data.data;
+                var minimum_account_balance = data.minimum_account_balance;
+                var maximum_loan_amount = data.maximum_loan_amount;
+                var maximum_duration = data.maximum_duration;
+                var minimum_loan_amount = data.minimum_loan_amount;
+                var loan_rate = data.loan_rate;
+  
+                $('#minimum_account_balance').val(minimum_account_balance);
+                $('#maximum_loan_amount').val(maximum_loan_amount);
+                $('#maximum_duration').val(maximum_duration);
+                $('#minimum_loan').val(minimum_loan_amount);
+                $('#loan_rate').val(loan_rate);
+            }
+        }
+    })
+  }
+
+  function updateSystem(){
+    var minimum_account_balance = $('#minimum_account_balance').val();
+    var maximum_loan_amount = $('#maximum_loan_amount').val();
+    var maximum_duration = $('#maximum_duration').val();
+    var minimum_loan_amount = $('#minimum_loan').val();
+    var loan_rate = $('#loan_rate').val();
+  
+    if (minimum_account_balance==''){
+      showError('MINIMUM BALANCE ERROR!', 'Fill all Fields To Continue');
+    }else if (maximum_loan_amount==''){
+      showError('MAXIMUM LOAN ERROR!', 'Fill all Fields To Continue');
+    }else if (maximum_duration==''){
+      showError('MAXIMUM DURATION ERROR!', 'Fill all Fields To Continue');
+    }else if (minimum_loan_amount==''){
+      showError('MINIMUM LOAN ERROR!', 'Fill all Fields To Continue');
+    }else if (loan_rate==''){
+      showError('LOAN RATE ERROR!', 'Fill all Fields To Continue');
+    }else{
+  
+      var btn_text  = $('#submit_btn').html();
+        $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> SUBMITTING...');
+        document.getElementById('submit_btn').disabled = true;
+  
+        var formData = 'minimum_account_balance=' + minimum_account_balance + '&maximum_loan_amount=' + maximum_loan_amount + '&maximum_duration=' + maximum_duration + '&minimum_loan_amount=' + minimum_loan_amount + '&loan_rate=' + loan_rate;
+  
+        axios.post(endpoint+'/admin/update-backend-settings-api?access_key='+access_key, formData, { headers: apikey })
+        .then(response => {
             var access_check = response.data.check;
             var success = response.data.success;
             var message = response.data.message;
-      
+    
             if (access_check == 0) {
-              _logout_();
+                _logout_(); 
             } else {
-            if (success == true) {
-              $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
-              $('#submit_btn').html(btn_text);
-              document.getElementById('submit_btn').disabled=false;
-               // _all_staff('');
-            }else{
-              $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
-                $('#submit_btn').html(btn_text);
-                document.getElementById('submit_btn').disabled=false;
+                if (success == true) {
+                    $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                    $('#submit_btn').html(btn_text);
+                    document.getElementById('submit_btn').disabled=false;
+                    alert_close();
+                }else{
+                    $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                    $('#submit_btn').html(btn_text);
+                    document.getElementById('submit_btn').disabled=false;
+                }
             }
+        })
+        .catch(error => {
+            $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+            $('#submit_btn').html(btn_text);
+            document.getElementById('submit_btn').disabled = false;
+        });
+    }
+  }
+
+  function _change_pass(staff_id){
+    var old_pass = $('#old_pass').val();
+    var new_pass = $('#new_pass').val();
+	var confirm_pass = $('#confirm_pass').val();
+
+    if (old_pass==''){
+        showError('OLD PASSWORD ERROR!', 'Fill all Fields To Continue');
+    }else if (new_pass==''){
+        showError('NEW PASSWORD ERROR!', 'Fill all Fields To Continue');
+    }else if (confirm_pass==''){
+        showError('CONFIRM PASSWORD ERROR!', 'Fill all Fields To Continue');
+    }else{
+
+        var btn_text  = $('#submit_btn').html();
+        $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> SUBMITTING...');
+        document.getElementById('submit_btn').disabled = true;
+
+        var formData = 'staff_id=' + staff_id + '&old_pass=' + old_pass + '&new_pass=' + new_pass + '&confirm_pass=' + confirm_pass;
+        axios.post(endpoint+'/admin/change-pass-api?access_key='+access_key, formData, { headers: apikey })
+
+        .then(response => {
+            var access_check = response.data.check;
+            var success = response.data.success;
+            var message = response.data.message;
+    
+            if (access_check == 0) {
+                _logout_(); 
+            } else {
+                if (success == true) {
+                    $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                    $('#submit_btn').html(btn_text);
+                    document.getElementById('submit_btn').disabled=false;
+                    alert_close();
+                }else{
+                    $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                    $('#submit_btn').html(btn_text);
+                    document.getElementById('submit_btn').disabled=false;
+                }
             }
-          })
-          .catch(error => {
+        })
+        .catch(error => {
+            $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+            $('#submit_btn').html(btn_text);
+            document.getElementById('submit_btn').disabled = false;
+        });
+    }
+}
+
+function _deposit(){
+  var account_no = $('#account_no').val();
+  var amount = $('#amount').val();
+
+  if (account_no==''){
+      showError('ACCOUNT NUMBER ERROR!', 'Fill all Fields To Continue');
+  }else if (amount==''){
+      showError('AMOUNT ERROR!', 'Fill all Fields To Continue');
+  }else{
+
+      var btn_text  = $('#submit_btn').html();
+      $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> SUBMITTING...');
+      document.getElementById('submit_btn').disabled = true;
+
+      var formData = 'account_number=' + account_no + '&amount=' + amount;
+      axios.post(endpoint+'/admin/deposit-api?access_key='+access_key, formData, { headers: apikey })
+
+      .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var message = response.data.message;
+  
+          if (access_check == 0) {
+              _logout_(); 
+          } else {
+              if (success == true) {
+                  $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                  $('#submit_btn').html(btn_text);
+                  document.getElementById('submit_btn').disabled=false;
+                  alert_close();
+              }else{
+                  $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                  $('#submit_btn').html(btn_text);
+                  document.getElementById('submit_btn').disabled=false;
+              }
+          }
+      })
+      .catch(error => {
           $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
           $('#submit_btn').html(btn_text);
           document.getElementById('submit_btn').disabled = false;
-          });
-        }
+      });
+  }
+}
+
+function _update_branch(branch_id){
+  var branch_name = $('#branch_name').val();
+  var branch_email = $('#branch_email').val();
+  var branch_mobile_number = $('#branch_mobile_number').val();
+  var address = $('#address').val();
+  var branch_zipcode = $('#branch_zipcode').val();
+  var branch_sortcode = $('#branch_sortcode').val();
+  var state_id = $('#state_id').val();
+  var lga_id = $('#lga_id').val();
+  var status_id = $('#status_id').val();
+  
+  if (branch_name==''){
+    showError('BRANCH NAME ERROR!', 'Fill all Fields To Continue');
+  }else if (branch_email == '') {
+    showError('BRANCH EMAIL ERROR!', 'Fill all Fields To Continue');
+    } else if (address == '') {
+    showError('BRANCH ADDRESS ERROR!', 'Fill all Fields To Continue');
+    } else if (branch_zipcode == '') {
+    showError('BRANCH ZIPCODE ERROR!', 'Fill all Fields To Continue');
+    } else if (branch_sortcode == '') {
+    showError('BRANCH SORTCODE ERROR!', 'Fill all Fields To Continue');
+    }else if (country_id==''){
+      showError('COUNTRY ERROR!', 'Please select a country');
+    }else if (state_id==''){
+      showError('STATE ERROR!', 'Please select a state');
+    }else if (lga_id==''){
+      showError('LOCAL GOVERNMENT ERROR!', 'Please select a local government');
+    }else if (address==''){
+      showError('ADDRESS ERROR!', 'Fill all Fields To Continue');
+    }else if (status_id==''){
+      showError('STATUS ERROR!', 'Please select a status');
+  }else{
+
+      var btn_text  = $('#submit_btn').html();
+      $('#submit_btn').html('<i id="spinner" class="bi bi-arrow-repeat"></i> SUBMITTING...');
+      document.getElementById('submit_btn').disabled = true;
+
+      var formData ='branch_name=' + branch_name + '&branch_email=' + branch_email + '&branch_mobile_number=' + branch_mobile_number + '&address=' + address + '&branch_zipcode=' + branch_zipcode + '&branch_sortcode=' + branch_sortcode + '&lga_id=' + lga_id + '&status_id=' + status_id + '&branch_id=' + branch_id;
+      axios.post(endpoint+'/admin/update-branch-api?access_key='+access_key, formData, { headers: apikey })
+
+      .then(response => {
+          var access_check = response.data.check;
+          var success = response.data.success;
+          var message = response.data.message;
+  
+          if (access_check == 0) {
+              _logout_(); 
+          } else {
+              if (success == true) {
+                  $('#success-div').html('<div><i class="bi-check-all"></i></div>SUCCESS!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                  $('#submit_btn').html(btn_text);
+                  document.getElementById('submit_btn').disabled=false;
+                  alert_close();
+                  _all_branch();
+              }else{
+                  $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + message).fadeIn(500).delay(5000).fadeOut(100);
+                  $('#submit_btn').html(btn_text);
+                  document.getElementById('submit_btn').disabled=false;
+              }
+          }
+      })
+      .catch(error => {
+          $('#warning-div').html('<div><i class="bi-check-all"></i></div>ERROR!' + ' ' + error).fadeIn(500).delay(5000).fadeOut(100);
+          $('#submit_btn').html(btn_text);
+          document.getElementById('submit_btn').disabled = false;
+      });
+  }
+}
+
+function all_counts(){
+  axios.post(endpoint+'/admin/all-tables-count-api?access_key='+access_key, null, { headers: apikey })
+  .then(response => {
+      var access_check = response.data.check;
+      var success = response.data.success;
+
+      if (access_check == 0) {
+          _logout_(); 
+      } else {
+          if (success == true) {
+              var count = response.data.data[0];
+              var staff_count = count.staff_count;
+              var customer_count = count.customer_count;
+              var branch_count =  count.branch_count;
+              var department_count = count.department_count;
+              var total_accounts_types = count.account_type_count;
+              var total_customer_account = count.account_count;
+              var total_amount_deposit =  count.deposit_amount;
+              var loan_amount = count.loan_amount;
+              var cumulative_account_balance = count.account_balance;
+              var alert = (count.alert_count>=9) ? '9+' : count.alert_count;
+
+              $('#total_staff').html(staff_count);
+              $('#total_customer').html(customer_count);
+              $('#total_branch').html(branch_count);
+              $('#total_department').html(department_count);
+              $('#total_accounts_types').html(total_accounts_types);
+              $('#total_customer_account').html(total_customer_account);
+              $('#total_amount_deposit').html(formatNumberWithComma(total_amount_deposit));
+              $('#total_loan_taken').html(formatNumberWithComma(loan_amount));
+              $('#cumulative_account_balance').html(formatNumberWithComma(cumulative_account_balance));
+              $('#alert').html(alert);
+          }
       }
+  })
+}
+
+function _all_notification(start_date, end_date) {
+  var search = $('#search').val()
+
+  $('#fetch_all_notification').html('<div class="ajax-loader"><br><img src="src/all-images/image-pix/ajax-loader.gif"/></div>').fadeIn(500);
+  var formData = 'start_date=' + start_date + '&end_date=' + end_date + '&search_txt=' + search;
+
+  axios.post(endpoint+'/admin/fetch-notification-api?access_key='+access_key, formData, { headers: apikey })
+  .then(response => {
+    var access_check = response.data.check;
+    var success = response.data.success;
+    var message = response.data.message;
+    var fetch = response.data.data;
+
+    if (access_check==0){
+      _logout_();
+    }else{
+      var text = '';
+
+      if (success==true){
+
+          for (var i = 0; i < fetch.length; i++) {
+              var alert_id = fetch[i].alert_id;
+              var fullname = fetch[i].fullname.toUpperCase();
+              var short_alert_description = fetch[i].short_alert_description;
+              var created_time = fetch[i].created_time;
+    
+              text +=
+    
+              '<div class="w-[30%] h-[110px] bg-white flex rounded-[5px] border-table-box-border border-[1px] cursor-pointer transition-all duration-700 hover:scale-105" onClick="_get_form_with_id(' + "'notification-module'" + "," + "'" + alert_id+ "'" + ')">'+
+                '<div class="w-[90%] mx-auto mt-[10px] text-[#333]">'+
+                    '<div class="w-[100%] flex justify-between">'+
+                        '<div><i class="bi bi-person-circle"></i> <span>'+ fullname +'</span></div>'+
+                        '<div><i class="bi bi-check2-all text-[15px]"></i></div>'+
+                    '</div>'+
+
+                    '<div class="mt-[8px] text-[12px] text-[#A2A2A2]">'+ short_alert_description+'...' +'</div>'+
+                    '<div class="mt-[8px] flex justify-end gap-1 text-[10px] text-[#EDA564]"><i class="bi bi-alarm"></i> '+ created_time +'</div>'+
+                '</div>'+
+            '</div>';
+    
+          }
+
+          $('#fetch_all_notification').html(text);
+      }else{
+          text +=
+        '<div class="false-notification-div">' +
+        "<p> " + message + " </p>" + '</div>';
+      $('#fetch_all_notification').html(text);
+      }
+    }
+  })
+  .catch(error => {
+      var errorMessage = '<div class="false-notification-div"><p>' + error + '</p></div>';
+      $('#fetch_all_notification').html(errorMessage);
+  });
+}
 
 
 

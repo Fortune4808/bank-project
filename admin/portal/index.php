@@ -1,4 +1,4 @@
-<?php include "../../public/config/config.php"; ?>
+<?php include "../../public2/config/config.php"; ?>
 <!doctype html>
 <html>
 <head>

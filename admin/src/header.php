@@ -1,4 +1,4 @@
-<?php include '../public/config/alert.php';?>
+<?php include '../public2/config/alert.php';?>
 <header class="fixed w-[100%] min-h-[60px] bg-white bg-opacity-80 h-custom-screen-ml:flex justify-center z-10 hidden">
     <div class="w-[90%] min-h-[60px] flex justify-between items-center">
         <div class="w-[155px]"><a href=""><img src="src/all-images/image-pix/logo.png" alt="<?php echo $website_name;?> Logo" title="<?php echo $website_name;?> Logo"/></a></div>

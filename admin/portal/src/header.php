@@ -1,5 +1,5 @@
 <?php include 'src/side-nav.php';?>
-<?php include '../../public/config/alert.php';?>
+<?php include '../../public2/config/alert.php';?>
 <header class="fixed w-[100%] min-h-[70px] bg-header-bg flex justify-center items-center z-[500px] fadeInDown animated">
     <div class="w-[98%] flex justify-between items-center text-white">
         <div class="w-[230px]"><img src="src/all-images/image-pix/logo.fw.png" alt="" title="<?php echo $website_name;?> logo"></div>

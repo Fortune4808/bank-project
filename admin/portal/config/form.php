@@ -79,24 +79,31 @@
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> COUNTRY:</label><br/>
                         <select class="formInput" id="country_id">
-                            <option>== SELECT COUNTRY ==</option>
-                            <script>
-                               
-                            </script>
+                            <script>_get_country()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATE:</label><br/>
                         <select class="formInput" id="state_id">
-                            <option>== SELECT STATE ==</option>
+                            <script>
+                             $('#country_id').on('change', function() {
+                                var country_id = $(this).val();
+                                _get_state(country_id);
+                                });
+                           </script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LOCAL GOVERNMENT:</label><br/>
                         <select class="formInput" id="lga_id">
-                            <option>== SELECT LOCAL GOVERNMENT ==</option>
+                            <script>
+                             $('#state_id').on('change', function() {
+                                var state_id = $(this).val();
+                                _get_lga(state_id);
+                                });
+                           </script>
                         </select>
                     </div>
 
@@ -233,24 +240,31 @@
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> COUNTRY:</label><br/>
                         <select class="formInput" id="country_id">
-                            <option>== SELECT COUNTRY ==</option>
-                            <script>
-                               
-                            </script>
+                            <script>_get_country()</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATE:</label><br/>
                         <select class="formInput" id="state_id">
-                            <option>== SELECT STATE ==</option>
+                            <script>
+                             $('#country_id').on('change', function() {
+                                var country_id = $(this).val();
+                                _get_state(country_id);
+                                });
+                           </script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> LOCAL GOVERNMENT:</label><br/>
                         <select class="formInput" id="lga_id">
-                            <option>== SELECT LOCAL GOVERNMENT ==</option>
+                            <script>
+                             $('#state_id').on('change', function() {
+                                var state_id = $(this).val();
+                                _get_lga(state_id);
+                                });
+                           </script>
                         </select>
                     </div>
 
@@ -322,13 +336,18 @@
 
                 <div class="mt-[10px] text-[12px] flex gap-[5px]">
                     <div class="w-[100%]">
-                        <label class="px-[15px] text-gray-500"> SURNAME:</label><br/>
-                        <input class="formInput" type="text" id="surname" placeholder="SURNAME"/>
+                        <label class="px-[15px] text-gray-500"> FIRST NAME:</label><br/>
+                        <input class="formInput" type="text" id="firstname" placeholder="FIRST NAME"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[15px] text-gray-500"> OTHER NAMES:</label><br/>
-                        <input class="formInput" type="text" id="othernames" placeholder="OTHER NAMES"/>
+                        <label class="px-[15px] text-gray-500"> MIDDLE NAME:</label><br/>
+                        <input class="formInput" type="text" id="middlename" placeholder="MIDDLE NAME"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> LAST NAME:</label><br/>
+                        <input class="formInput" type="text" id="lastname" placeholder="LAST NAME"/>
                     </div>
                 </div>
 
@@ -348,7 +367,40 @@
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> MARITAL STATUS:</label><br/>
                         <select class="formInput" id="marital_status_id">
-                           
+                           <script>_get_marital_status()</script>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-[10px] text-[12px] flex gap-[5px]">
+                     <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> COUNTRY:</label><br/>
+                        <select class="formInput" id="country_id">
+                           <script>_get_country()</script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> STATE:</label><br/>
+                        <select class="formInput" id="state_id">
+                           <script>
+                             $('#country_id').on('change', function() {
+                                var country_id = $(this).val();
+                                _get_state(country_id);
+                                });
+                           </script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> LOCAL GOVERNMENT:</label><br/>
+                        <select class="formInput" id="lga_id">
+                           <script>
+                             $('#state_id').on('change', function() {
+                                var state_id = $(this).val();
+                                _get_lga(state_id);
+                                });
+                           </script>
                         </select>
                     </div>
                 </div>
@@ -410,6 +462,7 @@
                         <div class="relative flex items-center">
                             <input class="formInput" type="text" readonly="readonly" id="post" placeholder="POST"/>
                             <i class="bi-lock-fill absolute right-3 text-primary-color"></i>
+                            <input type="hidden" id="post_id" />
                         </div>
                     </div>
                 </div>
@@ -417,16 +470,18 @@
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> BRANCH:</label><br/>
                         <div class="relative flex items-center">
-                            <input class="formInput" type="text" readonly="readonly" id="branch_id" placeholder="BRANCH"/>
+                            <input class="formInput" type="text" readonly="readonly" id="branch_name" placeholder="BRANCH"/>
                             <i class="bi-lock-fill absolute right-3 text-primary-color"></i>
+                            <input type="hidden" id="branch_id" />
                         </div>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> DEPARTMENT:</label><br/>
                         <div class="relative flex items-center">
-                            <input class="formInput" type="text" readonly="readonly" id="department_id" placeholder="DEPARTMENT"/>
+                            <input class="formInput" type="text" readonly="readonly" id="department_name" placeholder="DEPARTMENT"/>
                             <i class="bi-lock-fill absolute right-3 text-primary-color"></i>
+                            <input type="hidden" id="department_id" />
                         </div>
                     </div>
                 </div>
@@ -506,13 +561,18 @@
 
                 <div class="mt-[10px] text-[12px] flex gap-[5px]">
                     <div class="w-[100%]">
-                        <label class="px-[15px] text-gray-500"> SURNAME:</label><br/>
-                        <input class="formInput" type="text" id="surname" placeholder="SURNAME"/>
+                        <label class="px-[15px] text-gray-500"> FIRST NAME:</label><br/>
+                        <input class="formInput" type="text" id="firstname" placeholder="FIRST NAME"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[15px] text-gray-500"> OTHER NAMES:</label><br/>
-                        <input class="formInput" type="text" id="othernames" placeholder="OTHER NAMES"/>
+                        <label class="px-[15px] text-gray-500"> MIDDLE NAME:</label><br/>
+                        <input class="formInput" type="text" id="middlename" placeholder="MIDDLE NAME"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> LAST NAME:</label><br/>
+                        <input class="formInput" type="text" id="lastname" placeholder="LAST NAME"/>
                     </div>
                 </div>
 
@@ -532,7 +592,40 @@
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> MARITAL STATUS</label><br/>
                         <select class="formInput" id="marital_status_id">
-                            
+                            <script>_get_marital_status()</script>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mt-[10px] text-[12px] flex gap-[5px]">
+                     <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> COUNTRY:</label><br/>
+                        <select class="formInput" id="country_id">
+                           <script>_get_country()</script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> STATE:</label><br/>
+                        <select class="formInput" id="state_id">
+                           <script>
+                             $('#country_id').on('change', function() {
+                                var country_id = $(this).val();
+                                _get_state(country_id);
+                                });
+                           </script>
+                        </select>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[15px] text-gray-500"> LOCAL GOVERNMENT:</label><br/>
+                        <select class="formInput" id="lga_id">
+                           <script>
+                             $('#state_id').on('change', function() {
+                                var state_id = $(this).val();
+                                _get_lga(state_id);
+                                });
+                           </script>
                         </select>
                     </div>
                 </div>
@@ -601,16 +694,14 @@
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> BRANCH:</label><br/>
                         <select class="formInput" id="branch_id">
-                          <script>_get_faculty();</script>
+                          <script>_get_branch();</script>
                         </select>
                     </div>
 
                     <div class="w-[100%]">
                         <label class="px-[15px] text-gray-500"> DEPARTMENT:</label><br/>
                         <select class="formInput" id="department_id">
-                            <script>
-                              
-                            </script>
+                            <script>_get_department()</script>
                         </select>
                     </div>
                 </div>
@@ -781,11 +872,11 @@
                     <div class="w-[100%]">
                         <label class="px-[10px] text-primary-color"> STATUS:</label><br/>
                         <select class="formInput" id="status_id">
-                            <script></script>
+                            <script>_get_status();</script>
                         </select>
                     </div>
 
-                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateExpenses('<?php echo $ids?>');"><i class="bi-check2"></i> UPDATE</button>
+                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_update_branch('<?php echo $ids?>');"><i class="bi-check2"></i> UPDATE</button>
                 </div>
             </div>
         </div>
@@ -894,45 +985,31 @@
         <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
             <div class="w-[90%] mb-[20px] m-auto">
                 <div class="my-[20px] text-[12px] flex flex-col gap-[5px] w-[100%] min-h-[200px] bg-[#F4FDF8] border-[#A5EAC2] border-[1px] p-[20px]">
-                    <div class="mb-[15px] text-[#46A0DD] font-bold">NACOS & DEPARTMENTAL PAYMENT FEE</div>
+                    <div class="mb-[15px] text-[#46A0DD] font-bold">LOAN MANAGEMENT SYSTEM SETTINGS</div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> NACOS FEE:</label><br/>
-                        <input class="formInput" type="text" id="nacos_fee_amount" placeholder="NACOS FEE"/>
+                        <label class="px-[10px] text-primary-color"> MINIMUM BALANCE:</label><br/>
+                        <input class="formInput" type="text" id="minimum_account_balance" placeholder="ENTER MINIMUM BALANCE"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> DEPARTMENTAL FEE:</label><br/>
-                        <input class="formInput" type="text" id="departmental_fee_amount" placeholder="DEPARTMENTAL FEE"/>
-                    </div>
-                </div>
-
-                <div class="my-[20px] text-[12px] flex flex-col gap-[5px] w-[100%] min-h-[200px] bg-[#F4FDF8] border-[#A5EAC2] border-[1px] p-[20px]">
-                    <div class="mb-[15px] text-[#46A0DD] font-bold">SMTP DETAILS</div>
-            
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> SMTP HOST:</label><br/>
-                        <input class="formInput" type="text" id="smtp_host" placeholder="SMTP HOST"/>
+                        <label class="px-[10px] text-primary-color"> MAXIMUM LOAN:</label><br/>
+                        <input class="formInput" type="text" id="maximum_loan_amount" placeholder="ENTER MAXIMUM LAON"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> SMTP USERNAME:</label><br/>
-                        <input class="formInput" type="text" id="smtp_username" placeholder="SMTP USERNAME"/>
+                        <label class="px-[10px] text-primary-color"> MINIMUM LOAN:</label><br/>
+                        <input class="formInput" type="text" id="minimum_loan" placeholder="ENTER MINIMUM LOAN"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> SMTP PASSWORD:</label><br/>
-                        <input class="formInput" type="text" id="smtp_password" placeholder="SMTP PASSWORD"/>
+                        <label class="px-[10px] text-primary-color"> MAXIMUM DURATION:</label><br/>
+                        <input class="formInput" type="text" id="maximum_duration" placeholder="ENTER MINIMUM LOAN"/>
                     </div>
 
                     <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> SMTP PORT:</label><br/>
-                        <input class="formInput" type="text" id="smtp_port" placeholder="SMTP PORT"/>
-                    </div>
-
-                    <div class="w-[100%]">
-                        <label class="px-[10px] text-primary-color"> SUPPORT EMAIL:</label><br/>
-                        <input class="formInput" type="text" id="support_email" placeholder="SUPPORT EMAIL"/>
+                        <label class="px-[10px] text-primary-color"> LOAN RATE(%):</label><br/>
+                        <input class="formInput" type="text" id="loan_rate" placeholder="ENTER LOAN RATE"/>
                     </div>
                 </div>
                 <button class="w-[40%]" title="submit" id="submit_btn" onclick="updateSystem();"><i class="bi-check2"></i> UPDATE</button>
@@ -998,6 +1075,35 @@
     </div>
 <?php }?>
 
+<?php if ($page=='deposit'){?>
+    <div class="absolute h-screen w-[500px] bg-white right-0 animated fadeInRight">
+        <div class="formHeader">
+            <p class="text-white text-[13px] font-semibold font-title"><i class="bi-cash-coin"></i> Deposit Form </p>
+            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
+        </div>
+
+        <div class="w-[100%] h-[calc(100%-50px)] absolute overflow-auto">
+
+            <div class="w-[90%] m-auto">
+
+                <div class="my-[20px] text-[12px] flex flex-col gap-[5px]">
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> ACCOUNT NUMBER:</label><br/>
+                        <input class="formInput" type="text" id="account_no" placeholder="ENTER ACCOUNT NUMBER"/>
+                    </div>
+
+                    <div class="w-[100%]">
+                        <label class="px-[10px] text-primary-color"> DEPOSIT AMOUNT:</label><br/>
+                        <input class="formInput" type="text" id="amount" placeholder="ENTER DEPOSIT AMOUNT"/>
+                    </div>
+
+                    <button class="w-[40%]" title="submit" id="submit_btn" onclick="_deposit()"><i class="bi-check2"></i> SUBMIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php }?>
+
 <?php if($page=='customer-profile-module'){?>
     <div class="absolute h-screen w-[90%] right-[5%] top-[55px] bg-white animated fadeInUp">
         <div class="formHeader">
@@ -1030,6 +1136,44 @@
                 </nav>
                 
                 <?php $page="customer-profile";?>
+                <?php include 'content-page.php';?>
+           </div>
+        </div>
+    </div>
+<?php }?>
+
+<?php if($page=='customer-loan-module'){?>
+    <div class="absolute h-screen w-[90%] right-[5%] top-[55px] bg-white animated fadeInUp">
+        <div class="formHeader">
+            <p class="text-white text-[13px] font-bold"><i class="bi-person-fill"></i> CUSTOMER LOAN DETAILS</p>
+            <div class="bg-white bg-opacity-80 px-[8px] py-[3px] rounded-[100%] text-[#f00] text-[18px] cursor-pointer" title="close" onclick="alert_close()"><i class="bi-x"></i></div>
+        </div>
+
+        <div class="w-[100%] h-[calc(100%-55px)] no-overflow bg-white" id="sb-container">
+           <div class="w-[90%] m-auto">
+                <div class="w-[100%] min-h-[120px] flex justify-between border-b border-solid border-[#CECDCD]">
+                    
+                    <div class="w-[65%] flex items-center">
+                        <div class="w-[70px] h-[70px]">
+                            <img id="customer_pic" class="w-[100%] h-[100%] object-cover rounded-[5px]" alt="profile_pix" title="Profile Pix" style="width: 70px; height: 70px; object-position: top;" />
+                        </div>
+
+                        <div class="flex flex-col px-[20px]">
+                            <p class="text-[20px] font-title" id="fullname">XXXX</p>
+                            <p class="text-primary-color text-[10px]">Last Login Date: <strong id="last_login">xxxx</strong></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <nav class="pt-[20px]">
+                    <ul class="flex gap-[5px]">
+                        <li class="py-[8px] px-[15px] hover:bg-[#d4d4d4] bg-[#d4d4d4] rounded cursor-pointer active" onclick="setActive(this); _next_page('customer-profile')"><i class="bi-person-fill text-primary-color"></i> LOAN INFORMATION</li>
+                        <li class="py-[8px] px-[15px] hover:bg-[#d4d4d4] rounded cursor-pointer active" onclick="setActive(this); _next_page('loan-reschedule')"><i class="bi-clock-fill text-primary-color"></i> LOAN REQUEST BREAKDOWN</li>
+                    </ul>
+                </nav>
+                
+                <?php $page="customer-loan";?>
                 <?php include 'content-page.php';?>
            </div>
         </div>
